@@ -1,0 +1,48 @@
+/*
+    Questo file serve ad indicare i dettagli e abbellire la pagina web che lo usa
+*/
+
+/* Questo e' un commento */
+
+.titoloPaginaWeb{
+
+}
+
+.menu{
+
+}
+
+.login_accesso{
+
+}
+
+.barraDiRicerca{
+
+}
+
+.inputRicerca{
+    height: auto;
+    width: auto;
+    padding: auto;
+    text-align: center;
+    
+    border: transparent;
+    background-color: aquamarine;
+    color: blueviolet;
+}
+
+.submitRicerca{
+    border: transparent;
+    background-color: transparent;
+}
+
+.submitRicerca:hover{
+    cursor: pointer;
+    transition-duration: 1.3s;
+    transform: scale(1.5);
+}
+
+
+.parteFinale{
+    
+}

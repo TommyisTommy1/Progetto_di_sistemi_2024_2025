@@ -1,0 +1,122 @@
+Nome Sito Web: 
+
+<----------------------------------------------------------------------------------->
+
+Uso: HTML, Css, Javascript, PHP.
+
+<----------------------------------------------------------------------------------->
+
+Uso dettagliato:
+	- HTML:
+	    Serve per creare la base delle pagine web
+	
+	- Css: 
+	    Serve per abbellire le pagine web.
+
+	- Javascript: 
+	    Serve per gestire eventi e robe asincrone con php.
+
+	- PHP: 
+	    Serve per contenere i dati personali dell'utente.
+
+<----------------------------------------------------------------------------------->
+
+Altre robe da usare:
+     - CyberSecurity -> Protezione sito
+     - Copyright
+
+<----------------------------------------------------------------------------------->
+
+Idee per sito: 
+
+- Mini-Videogiochi -> Javascript
+- Barra di ricerca -> Chiamate asincrone Javascript
+- Accesso alla pagina -> PHP
+- Database per login -> PHP
+
+<----------------------------------------------------------------------------------->
+
+Pagine HTML sicure da fare: 
+	- Index
+	- Accedi
+	- Archivio
+	- Pagina personalizzata Offline
+
+Cartelle sicure da creare: 
+	- Css
+	- Javascript
+	- PHP
+	- Database
+
+<----------------------------------------------------------------------------------->
+
+Altri dettagli: 
+- Cybersecurity: 
+	-> Hashing password
+	-> Input caratteri strani (|, \, !, ', ecc..)
+	-> Doppia configurazione (via mail)
+	-> Non fare cartelle attaccabili (include)
+
+- Videogiochi: 
+	-> Woordle
+	-> Tris
+	-> Forza 4
+	-> Impiccato
+	-> Gioco delle 3 carte
+	-> 2048 Blocks Merge
+	-> Battaglia navale
+
+- Database: 
+	-> https://sleekdb.github.io/
+	-> Richiesta:
+	     Crea Account: 
+		a) Nome
+		b) Cognome
+		c) Sesso
+		d) Localita'
+		e) Username (Opzionale al posto di Mail)
+		e) Mail (Opzionale al posto di Username)
+		f) Password
+		g) Conferma Password
+		h) Conferma Accesso (via mail)
+		i) Accetto i termini e condizioni
+
+	     Accesso Account: 
+		a) Username (Opzionale al posto di Mail)
+		a) Mail (Opzionale al posto di Username)
+		b) Password
+		c) Conferma Password
+		d) Conferma Accesso (via mail)
+
+	     Elimina Account: 
+		a) Username (Opzionale al posto di Mail)
+		a) Mail (Opzionale al posto di Username)
+		b) Password
+		c) Conferma Password
+		d) Conferma Eliminazione (via mail)
+
+	     Password Dimenticata: 
+		a) Username (Opzionale al posto di Mail)
+		a) Mail (Opzionale al posto di Username)
+		b) Nuova Password
+		c) Conferma Password
+
+	     Username Account dimenticato: 
+		a) Mail
+		b) Password
+		c) Conferma Password
+		d) Conferma Accesso (via mail)
+		e) Invio Username
+
+	     Mail Account dimenticato: 
+		a) Username
+		b) Password
+		c) Conferma Password
+		d) Conferma Accesso
+		e) Invio Mail
+
+- Strumenti: 
+	-> Calcolatrice
+	-> Genera password
+	-> Codifica password
+
