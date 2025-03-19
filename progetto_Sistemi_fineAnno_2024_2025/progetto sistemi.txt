@@ -118,5 +118,4 @@ Altri dettagli:
 - Strumenti: 
 	-> Calcolatrice
 	-> Genera password
-	-> Codifica password
 
