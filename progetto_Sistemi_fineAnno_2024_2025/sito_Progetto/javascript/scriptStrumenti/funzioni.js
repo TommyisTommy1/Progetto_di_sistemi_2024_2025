@@ -3,6 +3,19 @@
 function creaCalcolatrice(){
     let contenuto = "";
 
+    contenuto += "<table id='calcolatrice'>";
+    contenuto += "<tr>";
+
+    for(let i = 0; i < operazioni.length; i++){
+        if(i % 4 == 0){
+            contenuto += "</tr><tr>";
+        }
+        contnenuto += "<td>"+operazioni[i]+"</td>";
+    }
+
+    contenuto += "</tr>";
+    contenuto += "</table>";
+
     return contenuto;
 }
 
@@ -97,6 +110,43 @@ function cambioSegno(a){
 }
 
 function cancellaUltimo(array){
-    array2 = array;
-    return array2;
+    array.pop();
+}
+
+function coseno(x){
+    return Math.cos(x);
+}
+
+function seno(x){
+    return Math.sin(x);
+}
+
+function tangente(x){
+    return Math.tan(x);
+}
+
+function arcocoseno(x){
+    return Math.acos(x);
+}
+
+function arcoseno(x){
+    return Math.asin(x);
+}
+
+function arcotangente(x){
+    return Math.atan(x);
+}
+
+function eng(x){
+    let a = 0;
+    let base = 1000;
+    while(x > base){
+        x /= base;
+        a++;
+    }
+    return x +"x10^(" + a + ")";
+}
+
+function percentuale(x){
+    return x / 100;
 }

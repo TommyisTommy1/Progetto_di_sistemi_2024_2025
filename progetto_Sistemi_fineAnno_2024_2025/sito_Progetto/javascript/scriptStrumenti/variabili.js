@@ -1,7 +1,7 @@
 var dati = "";
 var risultato = "";
 
-const operazioniCalcolatrice = 
+var operazioniCalcolatrice = 
 [
     "arccos(x)", "arcsin(x)", "arctan(x)", "On/Off",
     "cos(x)", "sin(x)", "tan(x)", "%",
