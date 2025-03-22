@@ -1,29 +1,28 @@
 
 
-function creaCalcolatrice(pulsanti){
+function creaCalcolatrice(){
     let contenuto = "";
-
 
     return contenuto;
 }
 
-function risultatoCalcolatrice(dati){
+function risultatoCalcolatrice(){
     let contenuto = "";
 
-    contenuto += risultato(dati);
+    contenuto += risultato();
 
     return contenuto;
 }
 
 // Funzione per il calcolo del risultato della operazione
-function risultato(dati, operazioni){
+function risultato(){
     // Non ci sono operazioni da fare
     if(dati.length = 0){
         return "";
     }
 
     // Controllo Errori
-    if(controlloErrori(dati, operazioni) == true){
+    if(controlloErrori() == true){
         return "Math Error: Operazione non valida!";
     }
 
@@ -34,11 +33,11 @@ function risultato(dati, operazioni){
     // Calcolo il risultato
     // Variaabile che conterra' il risultato
 
-    
+
 }
 
 // Funzione per il controllo degli errori
-function controlloErrori(dati, operazioni){
+function controlloErrori(){
 
     // Dati accettabili
     return false;
@@ -71,11 +70,33 @@ function divisione(a, b){
 }
 
 // Funzione per il calcolo della potenza
-function potenza(a, b){
-    return Math.pow(a, b);
+function potenza(a, x){
+    return Math.pow(a, x);
 }
 
 // Funzione per il calcolo della radice quadrata
-function radiceQuadrada(a){
-    return Math.sqrt(a);
+function radiceQuadrada(x){
+    return Math.sqrt(x);
+}
+
+// Funzione per il calcolo del logaritmo
+function logaritmo(a, x){
+    return Math.log(x)/Math.log(a);
+}
+
+function piGreco(){
+    return Math.PI;
+}
+
+function costanteEulero(){
+    return Math.E;
+}
+
+function cambioSegno(a){
+    return -a;
+}
+
+function cancellaUltimo(array){
+    array2 = array;
+    return array2;
 }

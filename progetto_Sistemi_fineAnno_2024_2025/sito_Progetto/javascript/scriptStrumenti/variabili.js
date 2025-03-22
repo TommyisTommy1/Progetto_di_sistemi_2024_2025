@@ -1,4 +1,4 @@
-var dati = 0;
+var dati = "";
 var risultato = "";
 
 const operazioniCalcolatrice = 
