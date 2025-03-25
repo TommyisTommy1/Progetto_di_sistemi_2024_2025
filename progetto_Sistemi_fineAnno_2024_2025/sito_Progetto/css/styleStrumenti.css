@@ -3,3 +3,26 @@
 */
 
 /* Questo e' un commento */
+
+.titoloPaginaWeb{
+
+}
+
+
+
+
+
+.parteFinale {
+}
+
+table.parteFinale {
+    margin: auto;
+}
+
+.copyright, .termini_condizioni {
+    padding: 20px;
+}
+
+.termini_condizioni {
+    text-align: right;
+}
