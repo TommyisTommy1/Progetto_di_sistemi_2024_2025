@@ -4,8 +4,17 @@
 
 /* Questo e' un commento */
 
-.titoloPaginaWeb{
+.titolo_menu{
     text-align: center;
+}
+
+.titoloPaginaWeb{
+    display: contents;
+}
+
+.menu{
+    display: inline-flex;
+    float: inline-end;
 }
 
 

@@ -57,13 +57,71 @@
     text-align: center;
 }
 
-.parteFinale {
+.posizioneAnimazione{
     display: flex;
     justify-content: center;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    position: fixed;
+    margin-top: 30px;
+    position: relative;
+}
+
+.animazione{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: solid 10px;
+    animation: limiteSpazio 20s infinite alternate;
+}
+  
+@keyframes limiteSpazio {
+    0%{
+        border-color: red;
+    }
+    10%{
+        border-color: orange;
+    }
+    20%{
+        border-color: yellow;
+    }
+    30%{
+        border-color: lightgreen;
+    }
+    40%{
+        border-color: green;
+    }
+    50%{
+        border-color: lightblue;
+    }
+    60%{
+        border-color: blue;
+    }
+    70%{
+        border-color: purple;
+    }
+    80%{
+        border-color: brown;
+    }
+    90%{
+        border-color: grey;
+    }
+    100%{
+        border-color: black;
+    }
+}
+
+.imgAnimazione{
+    cursor: not-allowed;
+    cursor: none;
+    width: 100%;
+    height: 100%;
+}
+
+.parteFinale {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
     align-items: center;
     text-align: center;
 }

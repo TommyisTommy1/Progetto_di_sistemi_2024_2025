@@ -57,7 +57,18 @@
         <form action="" method="get">
             
             <!-- Casella di input per quello che si vuole cercare, ha autocompletamento + il massimo che si puo' digitare e' 50 -->
-            <input type="search" class="inputRicerca" autocomplete="on" maxlength="50" name="inputRicerca" id="inputRicerca" placeholder="" />
+            <input type="search" class="inputRicerca" autocomplete="on" list="giochi" maxlength="50" name="inputRicerca" id="inputRicerca" placeholder="Inserisci il nome di un gioco" />
+
+            <!-- Datalist per dare dei suggerimenti di ricerca -->
+            <datalist id="giochi">
+                <option value="2048 Blocks merge">
+                <option value="Battaglia Navale">
+                <option value="Forza 4">
+                <option value="Gioco delle 3 carte">
+                <option value="Impiccato">
+                <option value="Tris">
+                <option value="Woordle">
+            </datalist>
 
             <!-- Casella di input per inviare quello che si vuole cercare con immagine emoji -->
             <input type="submit" class="submitRicerca" value="&#128269;" name="submitRicerca" id="submitRicerca" />
@@ -69,6 +80,7 @@
         </div>
     </div>
 
+    <!-- Divisore per indicare la descrizione della pagina web -->
     <div class="descrizione">
         <p>
             Questo sito web e' stato creato per il 
@@ -88,6 +100,13 @@
             Il sito web permette anche di visualizzare degli 
             strumenti per poter fare delle operazioni.
         </p>
+    </div>
+
+    <!-- Divisore per indicare la parte dell'animazione della pagina web -->
+    <div class="posizioneAnimazione">
+        <div class="animazione">
+            <img class="imgAnimazione" src="immagini/img_index/gattino-gatto-cat-pixel-pixelart-tazza.jpg" alt="gattino">
+        </div>
     </div>
 
     <!-- Divisore per indicare la parte finale della pagina web -->
