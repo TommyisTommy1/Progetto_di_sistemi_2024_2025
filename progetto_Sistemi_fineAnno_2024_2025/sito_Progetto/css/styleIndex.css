@@ -4,7 +4,7 @@
 
 /* Questo e' un commento */
 
-.prova{
+.titolo_menu{
     text-align: center;
 }
 
@@ -60,6 +60,12 @@
 .parteFinale {
     display: flex;
     justify-content: center;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    align-items: center;
+    text-align: center;
 }
 
 .copyright, .termini_condizioni {
