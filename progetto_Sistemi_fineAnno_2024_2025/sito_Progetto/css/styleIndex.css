@@ -58,7 +58,7 @@
 }
 
 .parteFinale {
-    display: ruby-text;
+    display: flex;
     justify-content: center;
 }
 

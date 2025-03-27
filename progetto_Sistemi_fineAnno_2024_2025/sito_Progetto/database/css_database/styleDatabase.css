@@ -15,8 +15,9 @@
 .parteFinale {
 }
 
-table.parteFinale {
-    margin: auto;
+.parteFinale {
+    display: flex;
+    justify-content: center;
 }
 
 .copyright, .termini_condizioni {
