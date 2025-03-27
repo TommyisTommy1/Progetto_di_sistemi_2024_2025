@@ -4,12 +4,17 @@
 
 /* Questo e' un commento */
 
-.titoloPaginaWeb{
+.prova{
+    text-align: center;
+}
 
+.titoloPaginaWeb{
+    display: contents;
 }
 
 .menu{
-
+    display: inline-flex;
+    float: inline-end;
 }
 
 .login_accesso{
@@ -17,16 +22,20 @@
 }
 
 .barraDiRicerca{
+    margin-top: 20px;
+    text-align: center;
+}
 
+.barraDiRicerca form{
+    height: 30px;
 }
 
 .inputRicerca{
-    height: auto;
-    width: auto;
-    padding: auto;
+    height: 150%;
+    width: 50%;
     text-align: center;
-    
-    border: transparent;
+    border: 1px solid black;
+    border-radius: 10px;
     background-color: aquamarine;
     color: blueviolet;
 }
@@ -42,12 +51,15 @@
     transform: scale(1.5);
 }
 
-
-.parteFinale {
+.descrizione{
+    display: flow-root;
+    margin-top: 50px;
+    text-align: center;
 }
 
-table.parteFinale {
-    margin: auto;
+.parteFinale {
+    display: ruby-text;
+    justify-content: center;
 }
 
 .copyright, .termini_condizioni {

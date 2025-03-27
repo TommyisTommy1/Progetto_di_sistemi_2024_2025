@@ -5,7 +5,7 @@
 /* Questo e' un commento */
 
 .titoloPaginaWeb{
-
+    text-align: center;
 }
 
 
@@ -15,8 +15,9 @@
 .parteFinale {
 }
 
-table.parteFinale {
-    margin: auto;
+.parteFinale {
+    display: ruby-text;
+    justify-content: center;
 }
 
 .copyright, .termini_condizioni {

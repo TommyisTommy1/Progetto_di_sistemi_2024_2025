@@ -11,50 +11,44 @@
 </head> <!-- Fine intestazione -->
 <body> <!-- Corpo della pagina web -->
     
-    <!-- Titolo della Pagina web con decorazioni date dalla classe titoloPaginaWeb all'interno del Css -->
-    <h1 class="titoloPaginaWeb">
-        Progetto di Sistemi
-    </h1>
+    <div class="prova">
 
-    <!-- Tabella per il menu' per vedere le diverse pagine web raggiungibili -->
-    <table class="menu">
+        <!-- Titolo della Pagina web con decorazioni date dalla classe titoloPaginaWeb all'interno del Css -->
+        <h1 class="titoloPaginaWeb">
+            Progetto di Sistemi
+        </h1>
 
-        <tr>
-            <!-- Parte di tabella che contiene il link alla pagina dei videogame -->
-            <td class="archivioVideogame">
+        <!-- Tabella per il menu' per vedere le diverse pagine web raggiungibili -->
+        <table class="menu">
 
-                <!-- Link alla pagina web dei videogames -->
-                <a href="archivio_videogame.html">Archivio Videogames</a>
-            </td>
-        </tr>
+            <tr>
+                <!-- Parte di tabella che contiene il link alla pagina dei videogame -->
+                <td class="archivioVideogame">
 
-        <tr>
-            <!-- Parte di tabella che contiene il link alla pagina di accesso -->
-            <td class="login_accesso">
+                    <!-- Link alla pagina web dei videogames -->
+                    <a href="archivio_videogame.html">Archivio Videogames</a>
+                </td>
+            </tr>
 
-                <!-- Link alla pagina web di accesso -->
-                <a href="login_accesso.html">Login / Accedi</a>
-            </td>
-        </tr>
+            <tr>
+                <!-- Parte di tabella che contiene il link alla pagina del profilo -->
+                <td class="pagina_profilo">
 
-        <tr>
-            <!-- Parte di tabella che contiene il link alla pagina del profilo -->
-            <td class="pagina_profilo">
+                    <!-- Link alla pagina web di profilo -->
+                    <a href="pagina_profilo.html">Profilo</a>
+                </td>
+            </tr>
 
-                <!-- Link alla pagina web di profilo -->
-                <a href="pagina_profilo.html">Profilo</a>
-            </td>
-        </tr>
+            <tr>
+                <!-- Parte di tabella che contiene il link alla pagina degli strumenti -->
+                <td class="strumenti">
 
-        <tr>
-            <!-- Parte di tabella che contiene il link alla pagina degli strumenti -->
-            <td class="strumenti">
-
-                <!-- Link alla pagina web degli strumenti -->
-                <a href="strumenti.html">Strumenti</a>
-            </td>
-        </tr>
-    </table>
+                    <!-- Link alla pagina web degli strumenti -->
+                    <a href="strumenti.html">Strumenti</a>
+                </td>
+            </tr>
+        </table>
+    </div>
     
     <!-- Divisore per indicare la barra di ricerca della pagina web -->
     <div class="barraDiRicerca">
@@ -68,10 +62,10 @@
             <!-- Casella di input per inviare quello che si vuole cercare con immagine emoji -->
             <input type="submit" class="submitRicerca" value="&#128269;" name="submitRicerca" id="submitRicerca" />
         </form>
-
+        
         <!-- Divisore per indicare la risposta della ricerca della pagina web -->
         <div class="rispostaRicerca">
-
+    
         </div>
     </div>
 
@@ -98,20 +92,16 @@
 
     <!-- Divisore per indicare la parte finale della pagina web -->
     <div class="parteFinale">
-        <table class="parteFinale">
-            <tr>
-                <td class="copyright">
-                    &copy;
-                        Copyright 2024-2025 Progetto Sistemi Informatici. 
-                        <br>
-                        All rights reserved. Tutti i diritti sono riservati.
-                        &copy;
-                </td>
-                <td class="termini_condizioni">
-                    <a href="termini_condizioni/termini_condizioni.html">Termini e Condizioni</a>
-                </td>
-            </tr>
-        </table>
+        <p class="copyright">
+            &copy;
+            Copyright 2024-2025 Progetto Sistemi Informatici. 
+            <br>
+            All rights reserved. Tutti i diritti sono riservati.
+            &copy;
+        </p>
+        <p class="termini_condizioni">
+            <a target="_blank" href="termini_condizioni/termini_condizioni.html">Termini e Condizioni</a>
+        </p>
     </div>
 
     <!-- Script javascript che verra' usato dalla pagina web -->
