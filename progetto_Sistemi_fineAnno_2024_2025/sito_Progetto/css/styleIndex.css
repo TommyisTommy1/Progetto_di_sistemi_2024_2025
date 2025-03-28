@@ -48,7 +48,7 @@
 .submitRicerca:hover{
     cursor: pointer;
     transition-duration: 1.3s;
-    transform: scale(1.5);
+    transform: scale(2.5);
 }
 
 .descrizione{
