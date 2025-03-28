@@ -8,9 +8,32 @@
     text-align: center;
 }
 
+.descrizione{
+    display: flex;
+    justify-content: center;
+}
 
+.informazioni{
+    width: 80%;
+    border-collapse: collapse;
+    text-align: center;
+}
 
+.titoliTabella th{
+    border: solid black 3px;
+    padding: 20px;
+    height: 10%;
+}
 
+.dettagliTabella td{
+    border: solid black 1px;
+    padding: 10px;
+}
+
+.dettagliTabella ul{
+    display: flex;
+    justify-content: flex-start;
+}
 
 .parteFinale {
 }
