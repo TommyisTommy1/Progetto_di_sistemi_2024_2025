@@ -1,0 +1,1 @@
+var operazione = 0;

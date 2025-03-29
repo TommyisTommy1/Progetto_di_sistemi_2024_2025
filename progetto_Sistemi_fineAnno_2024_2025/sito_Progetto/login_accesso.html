@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login_Accesso</title> <!-- Titolo della Pagina Web -->
     <link rel="stylesheet" href="css/styleLoginAccesso.css"> <!-- Link al file Css che verra' usato per abbellire la pagina web -->
+    <script type="text/javascript" src="javascript/scriptLoginAccesso/funzioni.js"></script>
+    <script type="text/javascript" src="javascript/scriptLoginAccesso/variabili.js"></script>
 </head> <!-- Fine intestazione -->
 <body> <!-- Corpo della pagina web -->
     
@@ -17,8 +19,22 @@
         Login / Accesso
     </h1>
 
+    <!-- Divisore per indicare il bottone per cambiare operazione -->
+    <div class="cambiaOperazione">
+        <!-- Bottone per cambiare operazione da login a registrazione o viceversa -->
+        <input type="button" name="bottoneCambiaOperazione" id="bottoneCambiaOperazione" value="clicca per cambiare operazione" />
+    </div>
+
     <!-- Divisore per indicare la parte del login/accesso -->
-    <div class="login_accesso"></div>
+    <div class="login_accesso">
+
+        <!-- Form che serve per inviare i dati -->
+        <form action="controllerLoginAccesso.php" method="post">
+            <div class="dati" id="dati"></div>
+            <br>
+            <input type="submit" name="submitDati" id="submitDati" class="submitDati" value="Invia i dati inseriti">
+        </form>
+    </div>
 
     <!-- Divisore per indicare la parte per tornare alla home page -->
     <div class="goBack">
@@ -48,6 +64,6 @@
     </div>
 
     <!-- Script javascript che verra' usato dalla pagina web -->
-    <script type="text/javascript" src="javascript/scriptLoginAccesso.js"></script>
+    <script type="text/javascript" src="javascript/scriptLoginAccesso/scriptLoginAccesso.js"></script>
 </body> <!-- Fine corpo -->
 </html>
