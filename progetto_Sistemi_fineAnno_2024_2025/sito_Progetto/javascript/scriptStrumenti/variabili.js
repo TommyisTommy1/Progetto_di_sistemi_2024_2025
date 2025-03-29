@@ -1,5 +1,3 @@
-var dati = "";
-var risultato = "";
 
 var operazioniCalcolatrice = 
 [

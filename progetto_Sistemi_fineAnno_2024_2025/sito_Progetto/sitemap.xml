@@ -5,7 +5,13 @@
     <sitemap>
         <loc>https://www.progettosistemi.it/sito_Progetto/sitemap.xml</loc>
         <description>
-            Sitemap for the project "Progetto Sistemi" - Year 2024-2025
+            Sitemap per il progetto "Progetto Sistemi" - Anno scolastico 2024-2025
+        </description>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.progettosistemi.it/sito_Progetto/index.php</loc>
+        <description>
+            Homepage del sito web
         </description>
     </sitemap>
 </sitemapindex>

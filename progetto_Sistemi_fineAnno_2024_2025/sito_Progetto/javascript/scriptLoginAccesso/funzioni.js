@@ -56,10 +56,19 @@ function inserisciDataNascita(){
 function inserisciSesso(){
     let sesso = "<br>";
     sesso += "<label for='sesso'>Inserisci il sesso: </label>";
-    sesso += "<input type='radio' name='sesso' id='F' class='sesso' value='F' required />";
-    sesso += "<input type='radio' name='sesso' id='M' class='sesso' value='M' required />";
-    sesso += "<input type='radio' name='sesso' id='Altro' class='sesso' value='Altro' required />";
-    sesso += "<input type='radio' name='sesso' id='Preferisco non specificare' class='sesso' value='Preferisco non specificare' required />";
+    
+    sesso += ottieniSesso("M");
+    sesso += ottieniSesso("F");
+    sesso += ottieniSesso("Altro");
+    sesso += ottieniSesso("Preferisco non dirlo");
+
+    return sesso;
+}
+
+function ottieniSesso(tipo){
+    let sesso = "";
+    sesso += "<label for=" + tipo + ">" + tipo + "</label>";
+    sesso += "<input type='radio' name='sesso' id=" + tipo + " class='sesso' value=" + tipo + " required />";
     return sesso;
 }
 

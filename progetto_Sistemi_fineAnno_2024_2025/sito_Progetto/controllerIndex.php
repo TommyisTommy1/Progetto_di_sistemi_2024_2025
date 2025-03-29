@@ -3,7 +3,7 @@
     
     // Funzioni richieste
     require_once "include/includeFunzioneOttieniVideogiochi.php";
-    require_once "include/includeFunzioniIndex.php";
+    require_once "include/includeIndex/includeFunzioniIndex.php";
 
     // Controllo se ha cliccato il bottone di ricerca
     if(isset($_POST['submitRicerca'])){

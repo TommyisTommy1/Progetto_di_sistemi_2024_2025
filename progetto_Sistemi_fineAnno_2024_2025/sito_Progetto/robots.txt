@@ -6,5 +6,10 @@
 # Disallow --> serve per non lasciare la visione
 
 User-agent: *
-Disallow: /database
-Disallow: /altri_file
+Disallow: /database/
+Disallow: /altri_file/
+Disallow: /immagini/
+Disallow: /include/
+Disallow: /javascript/
+
+Allow: sitemap.xml

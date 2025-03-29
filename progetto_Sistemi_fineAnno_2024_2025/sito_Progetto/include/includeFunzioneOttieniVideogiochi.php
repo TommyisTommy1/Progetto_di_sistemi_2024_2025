@@ -1,6 +1,7 @@
 <?php
     // Questo e' un commento
 
+    // Funzione per ottenere la lista dei videogiochi
     function ottieniListaVideogiochi(){
         $videogiochi = [
             "2048 Blocks merge",
