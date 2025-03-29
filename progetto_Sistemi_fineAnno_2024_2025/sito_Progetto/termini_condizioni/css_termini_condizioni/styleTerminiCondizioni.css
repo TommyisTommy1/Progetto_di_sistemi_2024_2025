@@ -17,22 +17,12 @@
     width: 80%;
     border-collapse: collapse;
     text-align: center;
+    list-style: none;
 }
 
-.titoliTabella th{
-    border: solid black 3px;
+.informazioni li{
     padding: 20px;
-    height: 10%;
-}
-
-.dettagliTabella td{
-    border: solid black 1px;
-    padding: 10px;
-}
-
-.dettagliTabella ul{
-    display: flex;
-    justify-content: flex-start;
+    border-bottom: 1px solid #ccc;
 }
 
 .parteFinale {
@@ -41,10 +31,6 @@
 .parteFinale {
     display: flex;
     justify-content: center;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    position: fixed;
     align-items: center;
     text-align: center;
 }
