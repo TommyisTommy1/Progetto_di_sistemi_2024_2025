@@ -1,17 +1,17 @@
 let bottoneCambiaOperazione = document.getElementById('bottoneCambiaOperazione');
 
 bottoneCambiaOperazione.addEventListener('click', function() {
-    console.log("cliccato bottone");
     daMostrare = "";
     if(operazione % 2 == 0){
         operazione++;
-        console.log("cliccato bottone");
         daMostrare = ottieniLogin();
+        operazioneFatta = "login";
     }else{
         operazione--;
-        console.log("cliccato bottone");
         daMostrare = ottieniAccesso();
+        operazioneFatta = "accesso";
     }
 
+    daMostrare += "<input type='hidden' name=" + operazioneFatta + " />";
     document.getElementById("dati").innerHTML = daMostrare;
 });
