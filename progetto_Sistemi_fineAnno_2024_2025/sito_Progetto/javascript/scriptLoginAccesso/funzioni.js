@@ -48,7 +48,7 @@ function inserisciCognome(){
 
 function inserisciDataNascita(){
     let dataNascita = "<br>";
-    dataNascita += "<label for='dataNascita'>Inserisci la dataNascita: </label>";
+    dataNascita += "<label for='dataNascita'>Inserisci la data di nascita: </label>";
     dataNascita += "<input type='date' name='dataNascita' id='dataNascita' class='dataNascita' placeholder='11/11/1111' required />";
     return dataNascita;
 }
@@ -66,9 +66,9 @@ function inserisciSesso(){
 }
 
 function ottieniSesso(tipo){
-    let sesso = "";
-    sesso += "<label for=" + tipo + ">" + tipo + "</label>";
+    let sesso = "<br>";
     sesso += "<input type='radio' name='sesso' id=" + tipo + " class='sesso' value=" + tipo + " required />";
+    sesso += "<label for=" + tipo + ">" + tipo + "</label>";
     return sesso;
 }
 
@@ -121,7 +121,7 @@ function inserisciConfermaPassword(){
 
 function inserisciAccettoTerminiCondizioni(){
     let accettoTeminiCondizioni = "<br>";
-    accettoTeminiCondizioni += "<label for='accettoTeminiCondizioni'>Conferma la accettoTeminiCondizioni: </label>";
+    accettoTeminiCondizioni += "<label for='accettoTeminiCondizioni'>Accetto i temini e le condizioni: </label>";
     accettoTeminiCondizioni += "<input type='checkbox' name='accettoTeminiCondizioni' id='accettoTeminiCondizioni' class='accettoTeminiCondizioni' required />";
     return accettoTeminiCondizioni;
 }

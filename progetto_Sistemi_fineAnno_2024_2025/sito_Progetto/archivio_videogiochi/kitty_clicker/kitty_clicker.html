@@ -1,0 +1,67 @@
+<!-- Questo file e' quello per giocare al gioco delle 3 carte -->
+<!-- Questo e' un commento -->
+
+<!DOCTYPE html>
+<html lang="it"> <!-- Lingua di default = Italiano -->
+<head> <!-- Testa della pagina web -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kitty_clicker</title> <!-- Titolo della Pagina Web -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Link al file Css che verra' usato per abbellire la pagina web -->
+    <script type="text/javascript" src="js/variabili.js"></script>
+    <script type="text/javascript" src="js/funzioni.js"></script>
+</head> <!-- Fine intestazione -->
+<body> <!-- Corpo della pagina web -->
+    
+    <!-- Titolo della Pagina web con decorazioni date dalla classe titoloPaginaWeb all'interno del Css -->
+    <h1 class="titoloPaginaWeb">
+        Kitty Clicker
+    </h1>
+
+    <!-- Divisore per indicare la descrizione del gioco -->
+    <div class="descrizioneGioco">
+            
+        <!-- Paragrafo con la descrizione del gioco -->
+        <p>
+            Kitty Clicker e' un gioco di clicker dove devi acquistare kitty per ottenere punti.
+            <br>
+            Ogni click su un kitty ti porta 1 punto.
+            <br>
+            Il gioco ti permette di ottenere un numero infinito di kitty,
+            <br>
+            ma non puoi ottenere più kitty per click che il numero di punti che hai.
+            <br>
+            Una volta raggiunta una determinata quantità di punti,
+            <br>
+            puoi comprare una nuova carta che ti permette di ottenere un numero di kitty maggiore.
+            <br>
+            Il gioco ti permette di ottenere un numero infinito di carte,
+            <br>
+            ma non puoi ottenere più carte per click che il numero di punti che hai.
+        </p>
+    </div>
+
+    <!-- Divisore per indicare il gioco -->
+    <div class="gioco">
+        <div class="kittyShop" id="kittyShop">
+            <table class="kittyShop">
+                <tr>
+                    <td class="kitty">
+                        
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="kittyClicker" id="kittyClicker"></div>
+        <div class="punteggioKitty" id="punteggioKitty"></div>
+    </div>
+
+    <!-- Divisore per indicare la parte finale della pagina web -->
+    <div class="parteFinale">
+        
+    </div>
+
+    <!-- Script javascript che verra' usato dalla pagina web -->
+    <script type="text/javascript" src="js/script.js"></script>
+</body> <!-- Fine corpo -->
+</html>
