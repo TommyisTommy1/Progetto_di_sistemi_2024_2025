@@ -1,1 +1,0 @@
-var punteggioTotale = 0;
