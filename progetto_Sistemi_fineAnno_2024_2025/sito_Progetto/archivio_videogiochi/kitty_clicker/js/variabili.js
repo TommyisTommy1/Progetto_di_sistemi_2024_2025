@@ -1,5 +1,7 @@
 var punteggioTotale = 0;
 
+var kittyInUso = 0;
+
 let kittyShop = 
 [
     {
@@ -8,7 +10,8 @@ let kittyShop =
         alt: "mini_kitty",
         costo: 0,
         punteggio: 1,
-        acquistato: true
+        acquistato: true,
+        inUso: true
     },
 
     {
@@ -17,7 +20,8 @@ let kittyShop =
         alt: "kitty",
         costo: 30,
         punteggio: 2,
-        acquistato: false
+        acquistato: false,
+        inUso: false
     },
 
     {
@@ -26,7 +30,8 @@ let kittyShop =
         alt: "grande_kitty",
         costo: 100,
         punteggio: 5,
-        acquistato: false
+        acquistato: false,
+        inUso: false
     },
 
     {
@@ -35,7 +40,8 @@ let kittyShop =
         alt: "bullo_kitty",
         costo: 500,
         punteggio: 7,
-        acquistato: false
+        acquistato: false,
+        inUso: false
     },
 
     {
@@ -44,7 +50,8 @@ let kittyShop =
         alt: "mago_kitty",
         costo: 1000,
         punteggio: 10,
-        acquistato: false
+        acquistato: false,
+        inUso: false
     },
 
     {
@@ -53,7 +60,8 @@ let kittyShop =
         alt: "angelo_kitty",
         costo: 2000,
         punteggio: 15,
-        acquistato: false
+        acquistato: false,
+        inUso: false
     },
 
     {
@@ -62,6 +70,7 @@ let kittyShop =
         alt: "demone_kitty",
         costo: 10000,
         punteggio: 25,
-        acquistato: false
+        acquistato: false,
+        inUso: false
     }
 ];
