@@ -1,0 +1,138 @@
+<!-- Questo file e' quello per giocare al gioco delle 3 carte -->
+<!-- Questo e' un commento -->
+
+<!DOCTYPE html>
+<html lang="it"> <!-- Lingua di default = Italiano -->
+<head> <!-- Testa della pagina web -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kitty_clicker</title> <!-- Titolo della Pagina Web -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Link al file Css che verra' usato per abbellire la pagina web -->
+    <script type="text/javascript" src="js/variabili.js"></script>
+    <script type="text/javascript" src="js/funzioni.js"></script>
+</head> <!-- Fine intestazione -->
+<body> <!-- Corpo della pagina web -->
+    
+    <!-- Titolo della Pagina web con decorazioni date dalla classe titoloPaginaWeb all'interno del Css -->
+    <h1 class="titoloPaginaWeb">
+        Kitty Clicker
+    </h1>
+
+    <!-- Divisore per indicare la descrizione del gioco -->
+    <div class="descrizioneGioco">
+            
+        <!-- Paragrafo con la descrizione del gioco -->
+        <p>
+            Kitty Clicker e' un gioco di clicker dove devi acquistare kitty per ottenere punti.
+            <br>
+            Ogni click su un kitty ti porta 1 punto.
+            <br>
+            Il gioco ti permette di ottenere un numero infinito di kitty,
+            <br>
+            ma non puoi ottenere più kitty per click che il numero di punti che hai.
+            <br>
+            Una volta raggiunta una determinata quantità di punti,
+            <br>
+            puoi comprare una nuova carta che ti permette di ottenere un numero di kitty maggiore.
+            <br>
+            Il gioco ti permette di ottenere un numero infinito di carte,
+            <br>
+            ma non puoi ottenere più carte per click che il numero di punti che hai.
+        </p>
+    </div>
+
+    <!-- Divisore per indicare il gioco -->
+    <div class="gioco">
+
+        <!-- Divisore per indicare lo shop dei kitty -->
+        <div class="kittyShop" id="kittyShop">
+            <table class="kittyShop">
+                <tr>
+                    <th colspan="8">&#127978; Kitty Shop &#127978;</th>
+                </tr>
+                <tr>
+                    <td class="kitty">
+                        <img src="img/mini_kitty.png" alt="mini_kitty">
+                        <h3>Mini kitty</h3>
+                        <p>Costo: <span id="costo" class="costo">0</span></p>
+                        <p>Punteggio: <span id="punteggio">1</span></p>
+                        <div class="inUso"></div>
+                    </td>
+
+                    <td class="kitty">
+                        <img src="img/kitty.png" alt="kitty">
+                        <h3>Kitty</h3>
+                        <p>Costo: <span id="costo" class="costo">30</span></p>
+                        <p>Punteggio: <span id="punteggio">2</span></p>
+                        <div class="inUso"><input type="button" id="acquista" value="Acquista"></div>
+                    </td>
+
+                    <td class="kitty">
+                        <img src="img/grande_kitty.png" alt="grande_kitty">
+                        <h3>Grande kitty</h3>
+                        <p>Costo: <span id="costo" class="costo">100</span></p>
+                        <p>Punteggio: <span id="punteggio">5</span></p>
+                        <div class="inUso"><input type="button" id="acquista" value="Acquista"></div>
+                    </td>
+
+                    <td class="kitty">
+                        <img src="img/bullo_kitty.png" alt="bullo_kitty">
+                        <h3>Bullo kitty</h3>
+                        <p>Costo: <span id="costo" class="costo">500</span></p>
+                        <p>Punteggio: <span id="punteggio">7</span></p>
+                        <div class="inUso"><input type="button" id="acquista" value="Acquista"></div>
+                    </td>
+                
+                    <td class="kitty">
+                        <img src="img/mago_kitty.png" alt="mago_kitty">
+                        <h3>Mago kitty</h3>
+                        <p>Costo: <span id="costo" class="costo">1000</span></p>
+                        <p>Punteggio: <span id="punteggio">10</span></p>
+                        <div class="inUso"><input type="button" id="acquista" value="Acquista"></div>
+                    </td>
+
+                    <td class="kitty">
+                        <img src="img/angelo_kitty.png" alt="angelo_kitty">
+                        <h3>Angelo kitty</h3>
+                        <p>Costo: <span id="costo" class="costo">2000</span></p>
+                        <p>Punteggio: <span id="punteggio">15</span></p>
+                        <div class="inUso"><input type="button" id="acquista" value="Acquista"></div>
+                    </td>
+
+                    <td class="kitty">
+                        <img src="img/demone_kitty.png" alt="demone_kitty">
+                        <h3>Demone kitty</h3>
+                        <p>Costo: <span id="costo" class="costo">10000</span></p>
+                        <p>Punteggio: <span id="punteggio">25</span></p>
+                        <div class="inUso"><input type="button" id="acquista" value="Acquista"></div>
+                    </td>
+
+                    <td class="kitty" style="background-color: seagreen;">
+                        <h3>Coming <br> Soon</h3>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div class="kittyClicker" id="kittyClicker">
+            <button type="button" class="kittyUso" id="kittyUso" value="1">
+                <img src="img/mini_kitty.png" alt="kitty">
+            </button>
+        </div>
+        
+        
+        <div class="punteggioKitty" id="punteggioKitty">
+            <h2 class="punteggio">Punteggio: <span class="valorePunteggio" id="valorePunteggio">0</span></h2>
+        </div>
+    </div>
+
+    <!-- Divisore per indicare la parte finale della pagina web -->
+    <div class="parteFinale">
+        
+    </div>
+
+    <!-- Script javascript che verra' usato dalla pagina web -->
+    <script type="text/javascript" src="js/script.js"></script>
+</body> <!-- Fine corpo -->
+</html>

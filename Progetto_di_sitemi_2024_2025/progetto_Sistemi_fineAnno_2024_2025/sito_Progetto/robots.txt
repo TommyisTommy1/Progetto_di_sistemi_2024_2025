@@ -1,0 +1,15 @@
+# Questo e' un commento
+
+# Questo file serve per lasciare o impedire di riuscire a vedere le directory/file sotto riportate
+
+# Allow --> serve per lasciare la visione
+# Disallow --> serve per non lasciare la visione
+
+User-agent: *
+Disallow: /database/
+Disallow: /altri_file/
+Disallow: /immagini/
+Disallow: /include/
+Disallow: /javascript/
+
+Allow: sitemap.xml

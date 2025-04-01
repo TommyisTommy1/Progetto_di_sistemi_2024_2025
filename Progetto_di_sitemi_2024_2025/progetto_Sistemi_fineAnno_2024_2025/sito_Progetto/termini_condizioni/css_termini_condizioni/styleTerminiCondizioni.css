@@ -1,0 +1,44 @@
+/*
+    Questo file serve ad indicare i dettagli e abbellire la pagina web che lo usa
+*/
+
+/* Questo e' un commento */
+
+.titoloPaginaWeb{
+    text-align: center;
+}
+
+.descrizione{
+    display: flex;
+    justify-content: center;
+}
+
+.informazioni{
+    width: 80%;
+    border-collapse: collapse;
+    text-align: center;
+    list-style: none;
+}
+
+.informazioni li{
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.parteFinale {
+}
+
+.parteFinale {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.copyright, .termini_condizioni {
+    padding: 20px;
+}
+
+.termini_condizioni {
+    text-align: right;
+}

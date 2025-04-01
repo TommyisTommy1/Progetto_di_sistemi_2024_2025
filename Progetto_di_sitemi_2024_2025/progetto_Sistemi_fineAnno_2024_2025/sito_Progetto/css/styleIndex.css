@@ -1,0 +1,135 @@
+/*
+    Questo file serve ad indicare i dettagli e abbellire la pagina web che lo usa
+*/
+
+/* Questo e' un commento */
+
+.titolo_menu{
+    text-align: center;
+}
+
+.titoloPaginaWeb{
+    display: contents;
+}
+
+.menu{
+    display: inline-flex;
+    float: inline-end;
+}
+
+.login_accesso{
+
+}
+
+.barraDiRicerca{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.barraDiRicerca form{
+    height: 30px;
+}
+
+.inputRicerca{
+    height: 150%;
+    width: 50%;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: aquamarine;
+    color: blueviolet;
+}
+
+.submitRicerca{
+    border: transparent;
+    background-color: transparent;
+}
+
+.submitRicerca:hover{
+    cursor: pointer;
+    transition-duration: 1.3s;
+    transform: scale(2.5);
+}
+
+.descrizione{
+    display: flow-root;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.posizioneAnimazione{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    position: relative;
+}
+
+.animazione{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: solid 10px;
+    animation: limiteSpazio 20s infinite alternate;
+}
+  
+@keyframes limiteSpazio {
+    0%{
+        border-color: red;
+    }
+    10%{
+        border-color: orange;
+    }
+    20%{
+        border-color: yellow;
+    }
+    30%{
+        border-color: lightgreen;
+    }
+    40%{
+        border-color: green;
+    }
+    50%{
+        border-color: lightblue;
+    }
+    60%{
+        border-color: blue;
+    }
+    70%{
+        border-color: purple;
+    }
+    80%{
+        border-color: brown;
+    }
+    90%{
+        border-color: grey;
+    }
+    100%{
+        border-color: black;
+    }
+}
+
+.imgAnimazione{
+    cursor: not-allowed;
+    cursor: none;
+    width: 100%;
+    height: 100%;
+}
+
+.parteFinale {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.copyright, .termini_condizioni {
+    padding: 20px;
+}
+
+.termini_condizioni {
+    text-align: right;
+}
