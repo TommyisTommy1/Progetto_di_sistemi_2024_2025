@@ -13,24 +13,22 @@
     
     <!-- Titolo della Pagina web con decorazioni date dalla classe titoloPaginaWeb all'interno del Css -->
     <h1 class="titoloPaginaWeb">
-        Woordle
+        Stewardle 2.0
     </h1>
 
     <!-- Divisore per indicare la descrizione del gioco -->
-    <div class="descrizioneGioco">
-                
-        <!-- Paragrafo con la descrizione del gioco -->
-        <p>
-            Woordle e' un gioco di parole in cui devi indovinare 
-            una parola di 5 lettere in 6 tentativi.
-            <br>
-            Ogni volta che inserisci una parola, il gioco ti dira' 
-            quante lettere sono corrette e al posto giusto e quante 
-            sono corrette ma al posto sbagliato.
-            <br>
-            Se indovini la parola, vinci il gioco!
-        </p>
-    </div>
+    <div class="descrizioneGioco">        
+        <button id="openModalBtn">tutorial</button>
+
+        <!-- Finestra modale -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span id="closeModalBtn" class="close">&times;</span>
+                <h2>tutorial title</h2>
+                <p>tutorial text.</p>
+            </div>
+        </div>
+    </div> 
 
     <!-- Divisore per indicare il gioco -->
     <div class="gioco">
