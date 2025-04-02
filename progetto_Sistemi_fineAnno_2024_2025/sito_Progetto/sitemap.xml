@@ -14,4 +14,10 @@
             Homepage del sito web
         </description>
     </sitemap>
+    <sitemap>
+        <loc>https://www.progettosistemi.it/sito_Progetto/archivio_videogiochi/kitty_clicker/kitty_clicker.php</loc>
+        <description>
+            Gioco clicker di kitty, passatempo
+        </description>
+    </sitemap>
 </sitemapindex>
