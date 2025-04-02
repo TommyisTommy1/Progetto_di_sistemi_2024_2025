@@ -31,6 +31,47 @@ body{
     border: solid black 5px;
 }
 
+.kittyShop td{
+    border: solid black 3px;
+    animation: limiteSpazio 20s infinite alternate;
+}
+
+@keyframes limiteSpazio {
+    0%{
+        border-color: red;
+    }
+    10%{
+        border-color: orange;
+    }
+    20%{
+        border-color: yellow;
+    }
+    30%{
+        border-color: lightgreen;
+    }
+    40%{
+        border-color: green;
+    }
+    50%{
+        border-color: lightblue;
+    }
+    60%{
+        border-color: blue;
+    }
+    70%{
+        border-color: purple;
+    }
+    80%{
+        border-color: brown;
+    }
+    90%{
+        border-color: grey;
+    }
+    100%{
+        border-color: black;
+    }
+}
+
 td.kitty{
     width: 50px;
     height: 70px;
@@ -89,9 +130,86 @@ td.kitty{
     justify-content: center;
     width: 250px;
     height: 250px;
+    animation: kittyBounce 3s infinite ease-in-out;
+}
+
+@keyframes kittyBounce {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        transform: scale(1.1) rotate(5deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(0.9) rotate(-5deg);
+        opacity: 1;
+    }
+    75% {
+        transform: scale(1.05) rotate(3deg);
+        opacity: 0.9;
+    }
 }
 
 .punteggioKitty{
+    background-color: antiquewhite;
+    color: blueviolet;
+    border: solid black 5px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px black;
+    transition: background-color 0.3s;
+    box-shadow: 2px 2px 4px black;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: animazioneBordoPunteggio 2s infinite;
+}
+
+@keyframes animazioneBordoPunteggio {
+    0% {
+        border-color: black;
+    }
+    50% {
+        border-color: blueviolet;
+    }
+    100% {
+        border-color: black;
+    }
+}
+
+.punteggio{
+    margin: 30px;
+}
+
+.compraBonus{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.compra{
+    padding: 20px;
+    text-align: center;
+    background-color: crimson;
+    color: white;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    box-shadow: 2px 2px 4px black;
+    outline: none;
+    cursor: pointer;
+}
+
+.compra:hover {
+    background-color: darkred;
+}
+
+.risultatoBonus{
     background-color: antiquewhite;
     color: blueviolet;
     border: solid black 1px;
@@ -106,10 +224,6 @@ td.kitty{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.punteggio{
-    margin: 30px;
 }
 
 .parteFinale {

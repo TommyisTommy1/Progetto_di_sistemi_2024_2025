@@ -46,30 +46,49 @@
 
         <!-- Divisore per indicare lo shop dei kitty -->
         <div class="kittyShop" id="kittyShop">
+
+            <!-- Tabella che contiene lo shop dei kitty -->
             <table class="kittyShop">
+
+                <!-- Titolo dello shop -->
                 <tr>
                     <th colspan="8">&#127978; Kitty Shop &#127978;</th>
                 </tr>
+
+                <!-- Dove i vari kitty verranno inseriti usando uno script javascript che li genera -->
                 <tr id="shopKitty"></tr>
             </table>
         </div>
 
-        
+        <!-- Divisore per indicare il kitty da premere, viene modificato attraverso lo script di javascript -->
         <div class="kittyClicker" id="kittyClicker">
+
+            <!-- Kitty da premere -->
             <button type="button" class="kittyUso" id="bottoneKittyUso">
+
+                <!-- Immagine del kitty che si sta usando -->
                 <img src="img/mini_kitty.png" alt="kitty">
             </button>
+
+            <!-- Viene salvato il valore del kitty che sta venendo usato -->
             <input type="hidden" id="kittyUso" value="1" />
-            <input type="hidden" id="immagineKittyUso" value="img/mini_kitty.png" />
         </div>
         
-        
+        <!-- Divisore per indicare il punteggio kitty che si ha e modificarlo usando lo script di javascript -->
         <div class="punteggioKitty" id="punteggioKitty">
+
+            <!-- Sottotitolo per mostrare meglio il punteggio -->
             <h2 class="punteggio">Punteggio: <span class="valorePunteggio" id="valorePunteggio">0</span></h2>
         </div>
 
+        <!-- Divisore per indicare un bottone per comprare un bonus (Si può perdere punti) -->
         <div class="compraBonus" id="compraBonus">
-            <button type="button" class="compra" id="bottoneCompraBonus">Compra Bonus</button>
+
+            <!-- Bottone per comprare il bonus -->
+            <button type="button" class="compra" id="bottoneCompraBonus">Compra Bonus (Costo 1000 punti kitty)</button>
+
+            <!-- Divisore per salvare il bonus ottenuto -->
+            <div class="risultatoBonus" id="risultatoBonus"></div>
         </div>
     </div>
 
