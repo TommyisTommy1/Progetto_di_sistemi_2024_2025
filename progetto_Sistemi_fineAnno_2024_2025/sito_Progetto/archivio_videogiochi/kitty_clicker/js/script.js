@@ -54,7 +54,7 @@ document.getElementById("shopKitty").innerHTML = shop;
 document.getElementById("bottoneKittyUso").addEventListener("click", function(){
 
     // Ottengo il valore del kitty in uso e lo sommo al punteggio che ho
-    punteggioTotale += parseFloat(document.getElementById("kittyUso").value);
+    punteggioTotale += kittyShop[kittyInUso].punteggio;
    
     // Assegno il nuovo valore al punteggio totale nella pagina
     document.getElementById("valorePunteggio").innerHTML = punteggioTotale;
