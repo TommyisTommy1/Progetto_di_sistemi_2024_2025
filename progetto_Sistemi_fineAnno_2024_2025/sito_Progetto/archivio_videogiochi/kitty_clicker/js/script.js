@@ -53,9 +53,9 @@ document.getElementById("shopKitty").innerHTML = shop;
 // Evento per il bottone che permette di aggiungere un punteggio al punteggio totale
 document.getElementById("bottoneKittyUso").addEventListener("click", function(){
 
-    // Ottengo il valore del kitty in uso e lo sommo al punteggio che ho
-    punteggioTotale += kittyShop[kittyInUso].punteggio;
-   
+    // Modifico il punteggio
+    modificaPunteggio();
+
     // Assegno il nuovo valore al punteggio totale nella pagina
     document.getElementById("valorePunteggio").innerHTML = punteggioTotale;
 });
@@ -65,28 +65,7 @@ document.getElementById("bottoneKittyUso").addEventListener("click", function(){
 // Evento per il bottone che permette di acquistare il bonus
 document.getElementById("compraBonus").addEventListener("click", function(){
 
-    // Costo del bonus 1000 punti
-    let costo = 1000;
+    bonus();
 
-    // Controllo se ho abbastanza punteggio per acquistare il bonus 1000 punti 1 volta sola
-    if(punteggioTotale >= costo){
-
-        // Tolgo dal punteggio il costo
-        punteggioTotale -= costo;
-
-        // Genero il bonus casuale (minimo = 500, massimo = 1500)
-        let bonus = Math.floor(Math.random() * costo) + costo/2;
-
-        // Aggiungo il bonus al punteggio totale
-        punteggioTotale += bonus;
-
-        // Mostro il bonus ottenuto
-        document.getElementById("risultatoBonus").innerHTML = bonus;
-
-        // Assegno il nuovo valore al punteggio totale nella pagina
-        document.getElementById("valorePunteggio").innerHTML = punteggioTotale;
-    }else{
-        // Se non ho abbastanza punteggio, mostro un messaggio di errore
-        document.getElementById("risultatoBonus").innerHTML = ("Non hai abbastanza punteggio!");
-    }
+    
 });

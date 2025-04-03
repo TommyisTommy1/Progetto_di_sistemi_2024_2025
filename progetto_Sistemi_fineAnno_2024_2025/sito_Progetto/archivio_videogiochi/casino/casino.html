@@ -1,0 +1,63 @@
+<!-- Questo file e' quello per giocare al gioco delle 3 carte -->
+<!-- Questo e' un commento -->
+
+<!DOCTYPE html>
+<html lang="it"> <!-- Lingua di default = Italiano -->
+<head> <!-- Testa della pagina web -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casino</title> <!-- Titolo della Pagina Web -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Link al file Css che verra' usato per abbellire la pagina web -->
+    <script type="text/javascript" src="js/variabili.js"></script>
+    <script type="text/javascript" src="js/funzioni.js"></script>
+</head> <!-- Fine intestazione -->
+<body> <!-- Corpo della pagina web -->
+    
+    <!-- Titolo della Pagina web con decorazioni date dalla classe titoloPaginaWeb all'interno del Css -->
+    <h1 class="titoloPaginaWeb">
+        Casino
+    </h1>
+
+    <!-- Divisore per indicare la descrizione del gioco -->
+    <div class="descrizioneGioco">
+            
+        <!-- Paragrafo con la descrizione del gioco -->
+        <p>
+            Benvenuti alle nostre emozionanti Slot Machines! 
+            <br>
+            Preparatevi a vivere l'adrenalina del casinò con un semplice clic. 
+            <br>
+            Girate i rulli, allineate i simboli e scoprite se la fortuna è dalla vostra parte. 
+            <br>
+            Con grafiche accattivanti e la possibilità di vincite istantanee, 
+            le nostre slot vi regaleranno ore di divertimento. 
+            <br>
+            Ricordate, giocate responsabilmente e che la fortuna sia con voi!
+        </p>
+    </div>
+
+    <!-- Divisore per indicare il gioco, slot machines -->
+    <div class="slot_machine">
+
+        <!-- Titolo delle Slot Machines -->
+        <h3>&#127920;Slot Machines&#127920;</h3>
+
+        <!-- Divisore per mostrare il risultato -->
+        <div class="risultato" id="risultato"></div>
+
+        <!-- Divisore per mostrare la lista delle carte -->
+        <div class="listaCarteSlot" id="listaCarteSlot"></div>
+        
+        <!-- Divisore per mostrare la slot machine -->
+        <div class="slotMachine" id="slotMachine"></div>
+    </div>
+
+    <!-- Divisore per indicare la parte finale della pagina web -->
+    <div class="parteFinale">
+        
+    </div>
+
+    <!-- Script javascript che verra' usato dalla pagina web -->
+    <script type="text/javascript" src="js/script.js"></script>
+</body> <!-- Fine corpo -->
+</html>
