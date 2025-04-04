@@ -133,13 +133,17 @@ function avviaSlotPerTempoTotale(lista, bottone, durataTotale, intervalloGiro, d
     }, intervalloGiro);
 }
 
-function calcolaVincita(lista){
-    let ii = lista[sceltaCentro].innerHTML;
-    for(let i = sceltaCentro() + 1; i < slotMachine.numeroRuote; i++){
-        if(ii != lista[i].innerHTML){
+function calcolaVincita(lista) {
+    const centro = sceltaCentro(); // riga centrale
+    const simboloVincente = lista[centro * slotMachine.numeroRuote].innerHTML;
+
+    for (let i = 1; i < slotMachine.numeroRuote; i++) {
+        const indice = centro * slotMachine.numeroRuote + i;
+
+        if (lista[indice].innerHTML !== simboloVincente) {
             return "Non hai vinto";
         }
     }
-    
-    return "Hai vinto";
+
+    return "Hai vinto!";
 }

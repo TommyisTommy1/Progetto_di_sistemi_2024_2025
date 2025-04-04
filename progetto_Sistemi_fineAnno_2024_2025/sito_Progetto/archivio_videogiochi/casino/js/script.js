@@ -17,8 +17,12 @@ let lista = document.getElementsByClassName("slotSlotMachine");
 let bottone = document.getElementById("bottoneSlotSlot");
 
 bottone.addEventListener("click", function () {
+    document.getElementById("risultato").innerHTML = "In attesa di risultato...";
 
-    avviaSlotPerTempoTotale(lista, bottone, 6000, 750, 3500);
+    let tempo = 6000;
+    avviaSlotPerTempoTotale(lista, bottone, tempo, 750, 3500);
 
-    document.getElementById("risultato").innerHTML = calcolaVincita(lista);
+    setTimeout(() => {
+        document.getElementById("risultato").innerHTML = calcolaVincita(lista);
+    }, tempo + 3000);
 });
