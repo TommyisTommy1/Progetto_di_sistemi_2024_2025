@@ -19,15 +19,28 @@ let bottone = document.getElementById("bottoneSlotSlot");
 bottone.addEventListener("click", function() {
     bottone.disabled = true;
 
-    for (let i = 0; i < slotMachine.numeroRuote; i++) {
+    for(let i = 0; i < slotMachine.numeroRuote; i++){
 
         setTimeout(() => {
-            lista[i].classList.add("animazione");
+
+            for(let ii = 0; ii < slotMachine.numeroRuote * slotMachine.emojiSlotVisibili; ii += slotMachine.numeroRuote){
+
+                lista[i + ii].classList.add("animazione");
+            }
+
+            for(let ii = 0; ii < slotMachine.numeroRuote; ii++){
+
+                
+
+                lista[ii].innerHTML = "&#" + slotMachine.tipi[Math.floor(Math.random() * slotMachine.tipi.length)] + ";";
+            }
 
             // Dopo un certo tempo, cambia il contenuto e rimuovi l'animazione
             setTimeout(() => {
-                lista[i].innerHTML = "&#" + slotMachine.tipi[Math.floor(Math.random() * slotMachine.tipi.length)] + ";";
-                lista[i].classList.remove("animazione");
+
+                for(let ii = 0; ii < slotMachine.numeroRuote * slotMachine.emojiSlotVisibili; ii += slotMachine.numeroRuote){
+                    lista[ii + i].classList.remove("animazione");
+                }
 
                 // Riabilita il bottone solo quando tutte le animazioni sono finite
                 if (i === slotMachine.numeroRuote - 1) {
@@ -37,3 +50,26 @@ bottone.addEventListener("click", function() {
         }, i * 750);
     }
 });
+
+/*
+
+for(let i = 0; i < lista.length; i += slotMachine.numeroRuote){
+    setTimeout(() => {
+
+        for(let ii = 0; ii < slotMachine.emojiSlotVisibili * slotMachine.numeroRuote; ii += slotMachine.numeroRuote){
+
+            // Dopo un certo tempo, cambia il contenuto e rimuovi l'animazione
+            setTimeout(() => {
+                lista[ii].innerHTML = "&#" + slotMachine.tipi[Math.floor(Math.random() * slotMachine.tipi.length)] + ";";
+                lista[ii].classList.remove("animazione");
+
+                // Riabilita il bottone solo quando tutte le animazioni sono finite
+                if (i === slotMachine.numeroRuote - 1) {
+                    bottone.disabled = false;
+                }
+            }, 3500);
+        }            
+    }, i * 750);
+}
+
+*/
