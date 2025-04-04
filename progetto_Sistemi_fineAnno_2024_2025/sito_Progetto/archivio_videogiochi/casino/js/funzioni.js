@@ -14,6 +14,9 @@ function creaListaSlot(){
     return lista;
 }
 
+function sceltaCentro(){
+    return (((slotMachine.emojiSlotVisibili % 2 == 0)? slotMachine.emojiSlotVisibili : slotMachine.emojiSlotVisibili + 1) / 2) - 1;
+}
 
 function creaSlotMachine(){
     let machine = "";
@@ -28,7 +31,7 @@ function creaSlotMachine(){
 
         machine += "<tr";
 
-        if(i == (((slotMachine.emojiSlotVisibili % 2 == 0)? slotMachine.emojiSlotVisibili : slotMachine.emojiSlotVisibili + 1) / 2) - 1){
+        if(i == sceltaCentro()){
             machine += " class='slotCentrale' ";
         }
 
@@ -46,4 +49,97 @@ function creaSlotMachine(){
     machine += "<button type='button' id='bottoneSlotSlot' class='bottoneSlotSlot'>Clicca per girare la slot</button>";
 
     return machine;
+}
+
+
+// 🔁 Aggiunge animazione alla colonna i
+function aggiungiAnimazione(lista, colonna) {
+
+
+    for (let i = 0; i < slotMachine.emojiSlotVisibili; i++) {
+        lista[colonna + i * slotMachine.numeroRuote].classList.add("animazione");
+    }
+}
+
+// 🔁 Rimuove animazione dalla colonna i
+function rimuoviAnimazione(lista, colonna) {
+
+    for (let i = 0; i < slotMachine.emojiSlotVisibili; i++) {
+        lista[colonna + i * slotMachine.numeroRuote].classList.remove("animazione");
+    }
+}
+
+// 🔄 Cambia le emoji di tutte le colonne, facendo "scendere" le emoji
+function aggiornaContenutoSlot(lista) {
+
+    for (let i = 0; i < slotMachine.numeroRuote; i++) {
+
+        for (let ii = slotMachine.emojiSlotVisibili - 1; ii > 0; ii--) {
+
+            lista[ii * slotMachine.numeroRuote + i].innerHTML = lista[(ii - 1) * slotMachine.numeroRuote + i].innerHTML;
+        }
+
+        // Nuova emoji random nella prima riga (in alto)
+        lista[i].innerHTML = "&#" + slotMachine.tipi[Math.floor(Math.random() * slotMachine.tipi.length)] + ";";
+    }
+}
+
+// 🌀 Gestisce un giro per una colonna specifica
+function giraColonna(lista, colonna, delayInizio, durataAnimazione) {
+
+    setTimeout(() => {
+
+        aggiungiAnimazione(lista, colonna);
+
+        aggiornaContenutoSlot(lista);
+
+        setTimeout(() => {
+
+            rimuoviAnimazione(lista, colonna);
+
+        }, durataAnimazione);
+
+    }, delayInizio);
+}
+
+function avviaSlot(lista, delayRuote, durataAnimazione) {
+    for (let i = 0; i < slotMachine.numeroRuote; i++) {
+
+        giraColonna(lista, i, i * delayRuote, durataAnimazione);
+    }
+}
+
+function avviaSlotPerTempoTotale(lista, bottone, durataTotale, intervalloGiro, durataAnimazione) {
+    bottone.disabled = true;
+
+    const inizio = Date.now();
+
+    const intervallo = setInterval(() => {
+        const tempoTrascorso = Date.now() - inizio;
+
+        if (tempoTrascorso >= durataTotale) {
+            clearInterval(intervallo);
+
+            // Attendi che l'ultima animazione finisca, poi riabilita il bottone
+            setTimeout(() => {
+                
+                bottone.disabled = false;
+            }, durataAnimazione + 100);
+
+        } else {
+
+            avviaSlot(lista, intervalloGiro, durataAnimazione);
+        }
+    }, intervalloGiro);
+}
+
+function calcolaVincita(lista){
+    let ii = lista[sceltaCentro].innerHTML;
+    for(let i = sceltaCentro() + 1; i < slotMachine.numeroRuote; i++){
+        if(ii != lista[i].innerHTML){
+            return "Non hai vinto";
+        }
+    }
+    
+    return "Hai vinto";
 }
