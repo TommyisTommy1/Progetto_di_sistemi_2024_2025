@@ -8,7 +8,8 @@
 User-agent: *
 Disallow: /database/
 Disallow: /altri_file/
-Disallow: /immagini/
+Disallow: /img/
+Disallow: /icon/
 Disallow: /include/
 Disallow: /javascript/
 
