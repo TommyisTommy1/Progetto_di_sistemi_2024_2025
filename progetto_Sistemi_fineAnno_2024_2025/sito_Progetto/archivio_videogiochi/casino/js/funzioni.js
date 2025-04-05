@@ -74,10 +74,8 @@ function aggiornaContenutoSlot(lista) {
 
     for (let i = 0; i < slotMachine.numeroRuote; i++) {
 
-        for (let ii = slotMachine.emojiSlotVisibili - 1; ii > 0; ii--) {
-
-            lista[ii * slotMachine.numeroRuote + i].innerHTML = lista[(ii - 1) * slotMachine.numeroRuote + i].innerHTML;
-        }
+        // Sposta le emoji verso il basso
+        
 
         // Nuova emoji random nella prima riga (in alto)
         lista[i].innerHTML = "&#" + slotMachine.tipi[Math.floor(Math.random() * slotMachine.tipi.length)] + ";";
@@ -103,6 +101,7 @@ function giraColonna(lista, colonna, delayInizio, durataAnimazione) {
 }
 
 function avviaSlot(lista, delayRuote, durataAnimazione) {
+
     for (let i = 0; i < slotMachine.numeroRuote; i++) {
 
         giraColonna(lista, i, i * delayRuote, durataAnimazione);
