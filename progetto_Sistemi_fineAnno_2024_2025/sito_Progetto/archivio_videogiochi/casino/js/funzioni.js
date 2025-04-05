@@ -38,6 +38,7 @@ function creaSlotMachine(){
         machine += ">";
 
         for (let j = 0; j < slotMachine.numeroRuote; j++){
+
             machine += "<td class='slotSlotMachine'> &#" + slotMachine.tipi[Math.floor(Math.random() * slotMachine.tipi.length)] + "; </td>";
         }
 
@@ -54,7 +55,6 @@ function creaSlotMachine(){
 
 // 🔁 Aggiunge animazione alla colonna i
 function aggiungiAnimazione(lista, colonna) {
-
 
     for (let i = 0; i < slotMachine.emojiSlotVisibili; i++) {
         lista[colonna + i * slotMachine.numeroRuote].classList.add("animazione");
