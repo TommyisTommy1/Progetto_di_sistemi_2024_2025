@@ -55,7 +55,7 @@ function inserisciDataNascita(){
 
 function inserisciSesso(){
     let sesso = "<br>";
-    sesso += "<label for='sesso'>Inserisci il sesso: </label>";
+    sesso += "<label>Inserisci il sesso: </label>";
     
     sesso += ottieniSesso("M");
     sesso += ottieniSesso("F");
@@ -74,7 +74,7 @@ function ottieniSesso(tipo){
 
 function inserisciResidenza(){
     let localita = "<br>";
-    localita += "<label for='localita'>Inserisci la localita': </label>";
+    localita += "<label>Inserisci la localita': </label>";
     localita += "<select>";
     localita += "<option value='SelezionaLocalita'>Seleziona una localita</option>";
 

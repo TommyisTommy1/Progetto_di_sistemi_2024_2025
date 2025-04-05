@@ -14,4 +14,6 @@ bottoneCambiaOperazione.addEventListener('click', function() {
 
     daMostrare += "<input type='hidden' name=" + operazioneFatta + " />";
     document.getElementById("dati").innerHTML = daMostrare;
+
+    document.getElementById("parteFinale").classList.remove("parteFinaleStatic");
 });
