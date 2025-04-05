@@ -41,6 +41,15 @@
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
+    padding: 15px;
+    background-color: aquamarine;
+    color: brown;
+    border: none;
+    font-family: monospace;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+    box-shadow: 2px 2px 4px black;
 }
 
 .parteFinale {

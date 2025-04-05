@@ -55,12 +55,14 @@ function inserisciDataNascita(){
 
 function inserisciSesso(){
     let sesso = "<br>";
-    sesso += "<label>Inserisci il sesso: </label>";
+    sesso += "<div>Inserisci il sesso: ";
     
     sesso += ottieniSesso("M");
     sesso += ottieniSesso("F");
     sesso += ottieniSesso("Altro");
     sesso += ottieniSesso("Preferisco non dirlo");
+
+    sesso += "</div>";
 
     return sesso;
 }
@@ -74,8 +76,8 @@ function ottieniSesso(tipo){
 
 function inserisciResidenza(){
     let localita = "<br>";
-    localita += "<label>Inserisci la localita': </label>";
-    localita += "<select>";
+    localita += "<label for='residenza'>Inserisci la localita': </label>";
+    localita += "<select name='residenza' id='residenza'>";
     localita += "<option value='SelezionaLocalita'>Seleziona una localita</option>";
 
     for(let i = 0; i < citta.length; i++){
@@ -94,7 +96,7 @@ function ottieniLocalita(citta){
 function inserisciUsername(){
     let username = "<br>";
     username += "<label for='username'>Inserisci lo username: </label>";
-    username += "<input type='text' name='username' id='username' class='username' placeholder='Username' />";
+    username += "<input type='text' name='username' id='username' class='username' autocomplete='username' placeholder='Username' />";
     return username;
 }
 
