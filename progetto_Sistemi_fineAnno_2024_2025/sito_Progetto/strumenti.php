@@ -40,7 +40,7 @@
                 <td class="index">
 
                     <!-- Link alla pagina home -->
-                    <a href="index.html">Home Page</a>
+                    <a href="index.php">Home Page</a>
                 </td>
             </tr>
 
@@ -49,7 +49,7 @@
                 <td class="archivioVideogame">
 
                     <!-- Link alla pagina web dei videogames -->
-                    <a href="archivio_videogame.html">Archivio Videogames</a>
+                    <a href="archivio_videogame.php">Archivio Videogames</a>
                 </td>
             </tr>
 
@@ -58,7 +58,7 @@
                 <td class="pagina_profilo">
 
                     <!-- Link alla pagina web di profilo -->
-                    <a href="pagina_profilo.html">Profilo</a>
+                    <a href="pagina_profilo.php">Profilo</a>
                 </td>
             </tr>
         </table>

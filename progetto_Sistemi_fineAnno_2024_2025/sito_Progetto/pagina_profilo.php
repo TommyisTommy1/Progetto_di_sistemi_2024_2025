@@ -37,7 +37,7 @@
                 <td class="index">
 
                     <!-- Link alla pagina home -->
-                    <a href="index.html">Home Page</a>
+                    <a href="index.php">Home Page</a>
                 </td>
             </tr>
 
@@ -46,7 +46,7 @@
                 <td class="archivioVideogame">
 
                     <!-- Link alla pagina web dei videogames -->
-                    <a href="archivio_videogame.html">Archivio Videogames</a>
+                    <a href="archivio_videogame.php">Archivio Videogames</a>
                 </td>
             </tr>
 
@@ -55,7 +55,7 @@
                 <td class="strumenti">
 
                     <!-- Link alla pagina web degli strumenti -->
-                    <a href="strumenti.html">Strumenti</a>
+                    <a href="strumenti.php">Strumenti</a>
                 </td>
             </tr>
         </table>

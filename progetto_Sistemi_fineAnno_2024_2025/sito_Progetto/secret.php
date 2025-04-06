@@ -51,7 +51,7 @@
         <p class="termini_condizioni">
 
             <!-- Link ai termini e condizioni della pagina web -->
-            <a target="_blank" href="termini_condizioni/termini_condizioni.html">Termini e Condizioni</a>
+            <a target="_blank" href="termini_condizioni/termini_condizioni.php">Termini e Condizioni</a>
         </p>
     </div>
 

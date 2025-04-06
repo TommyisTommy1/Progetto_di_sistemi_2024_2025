@@ -52,7 +52,7 @@
     <div class="goBack">
 
         <!-- Link per tornare alla pagina iniziale -->
-        <a href="index.html" class="linkGoBack">Torna alla pagina iniziale</a>
+        <a href="index.php" class="linkGoBack">Torna alla pagina iniziale</a>
     </div>
 
     <!-- Divisore per indicare la parte finale della pagina web -->

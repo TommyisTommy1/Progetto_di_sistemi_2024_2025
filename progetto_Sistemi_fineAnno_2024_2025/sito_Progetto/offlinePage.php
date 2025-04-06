@@ -31,7 +31,7 @@
         <img src="img/img_offline/animePiangendo.png" alt="animePiangendo" class="animePiangendo">
         <div>
             <p>Sei offline</p>
-            <a href="index.html">Ritenta la connessione</a>
+            <a href="index.php">Ritenta la connessione</a>
         </div>
     </div>
 
