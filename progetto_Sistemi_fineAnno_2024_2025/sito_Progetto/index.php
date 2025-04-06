@@ -73,31 +73,40 @@
     <!-- Divisore per indicare la barra di ricerca della pagina web -->
     <div class="barraDiRicerca">
 
-        <!-- Form per controllare una ricerca fatta -->
-        <form action="controllerIndex.php" method="post">
+        <!-- Casella di input per quello che si vuole cercare, ha autocompletamento + il massimo che si puo' digitare e' 50 -->
+        <input type="search" class="inputRicerca" autocomplete="on" list="giochi" maxlength="50" name="inputRicerca" id="inputRicerca" placeholder="Inserisci il nome di un gioco" />
+
+        <!-- Datalist per dare dei suggerimenti di ricerca -->
+        <datalist id="giochi">
             
-            <!-- Casella di input per quello che si vuole cercare, ha autocompletamento + il massimo che si puo' digitare e' 50 -->
-            <input type="search" class="inputRicerca" autocomplete="on" list="giochi" maxlength="50" name="inputRicerca" id="inputRicerca" placeholder="Inserisci il nome di un gioco" />
-
-            <!-- Datalist per dare dei suggerimenti di ricerca -->
-            <datalist id="giochi">
+            <!-- Codice php per ottenere i nomi dei videogiochi -->
+            <?php
+                // Salvataggio della lista in un array
+                $arrayVideogiochi = ottieniListaVideogiochi();
                 
-                <?php
-                    $arrayVideogiochi = ottieniListaVideogiochi();
-                    for($i = 0; $i < count($arrayVideogiochi); $i++){
-                        // Stampa il nome del gioco
-                        echo "<option value=\"".$arrayVideogiochi[$i]."\"></option>";
-                    }
-                ?>
-                
-            </datalist>
+                // for per stampare tutti i nomi dei videogiochi all'interno dell'array
+                for($i = 0; $i < count($arrayVideogiochi); $i++){
+                    
+                    // Stampa il nome del gioco dall'array
+                    echo "<option value=\"".$arrayVideogiochi[$i]."\"></option>";
+                }
+            ?>    
+        </datalist>
 
-            <!-- Casella di input per inviare quello che si vuole cercare con immagine emoji -->
-            <input type="submit" class="submitRicerca" value="&#128269;" name="submitRicerca" id="submitRicerca" />
-        </form>
+        <!-- Casella di input per inviare quello che si vuole cercare con immagine emoji -->
+        <button type="button" class="submitRicerca" id="submitRicerca">&#128269;</button>
         
         <!-- Divisore per indicare la risposta della ricerca della pagina web -->
-        <div class="rispostaRicerca"></div>
+        <div id="rispostaRicerca" class="rispostaRicerca">
+            
+            <!-- Codice php per ottenere la risposta della ricerca -->
+            <?php
+                // Se la variabile di ricerca e' settata, allora stampo il risultato
+                if(isset($_GET['ris'])){
+                    echo $_GET['ris'];
+                }
+            ?>
+        </div>
     </div>
 
     <!-- Divisore per indicare la descrizione della pagina web -->
@@ -156,6 +165,6 @@
     </div>
 
     <!-- Script javascript che verra' usato dalla pagina web -->
-    <script type="text/javascript" src="javascript/scriptPaginaIniziale.js"></script>
+    <script type="text/javascript" src="javascript/scriptIndex/scriptPaginaIniziale.js"></script>
 </body> <!-- Fine corpo -->
 </html>

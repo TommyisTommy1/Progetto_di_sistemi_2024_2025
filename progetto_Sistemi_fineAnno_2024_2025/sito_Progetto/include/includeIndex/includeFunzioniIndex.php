@@ -8,7 +8,8 @@
         for($i = 0; $i < count($videogiochi); $i++){
 
             // Se trovo il video gioco nella lista, ritorno true
-            if($videogiochi[$i] == $nome){
+            // Trasformo i nomi in minuscolo cosi' se si sbaglia a scrivere non c'e' nessun problema
+            if(strtolower($videogiochi[$i]) == strtolower($nome)){
                 return true;
             }
         }
@@ -33,7 +34,7 @@
             }
         }
 
-        // Ritorno il percorso
+        // Ritorno il percorso senza la sua estensione
         return $percorso;
     }
 
