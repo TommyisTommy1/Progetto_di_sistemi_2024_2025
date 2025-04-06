@@ -9,6 +9,12 @@
 
     // Includo i file che contengono funzioni che devo utilizzare
 
+    // Richiedo la funzione dentro il file che la contiene e la utilizzo prima di fare altre operazioni
+    // poiche' cosi' recupero o inizializzo i dati
+    require_once "include/includeFunzioniDiGestione/includeFunzioniInizializzazioneSessione.php";
+
+    // Inizializzo i dati della sessione
+    inizializzaSessione();
     
 ?>
 
