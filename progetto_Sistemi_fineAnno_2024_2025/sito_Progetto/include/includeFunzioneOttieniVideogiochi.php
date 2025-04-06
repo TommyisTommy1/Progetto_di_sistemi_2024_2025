@@ -6,6 +6,7 @@
         $videogiochi = [
             "2048 Blocks merge",
             "Battaglia Navale",
+            "Casino",
             "Kitty Clicker",
             "Forza 4",
             "Gioco delle 3 carte",
