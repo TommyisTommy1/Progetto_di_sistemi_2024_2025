@@ -1,0 +1,56 @@
+/*
+    Questo file serve ad indicare i dettagli e abbellire la pagina web che lo usa
+*/
+
+/* Questo e' un commento */
+
+.titoloPaginaWeb{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #f0f0f0;
+    border: solid black 1px;
+}
+
+.descrizione{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.animePiangendo{
+    width: 50%;
+    height: 50%;
+    max-width: 500px;
+    max-height: 500px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.parteFinale {
+}
+
+.parteFinale {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.copyright, .termini_condizioni {
+    padding: 20px;
+}
+
+.termini_condizioni {
+    text-align: right;
+}
