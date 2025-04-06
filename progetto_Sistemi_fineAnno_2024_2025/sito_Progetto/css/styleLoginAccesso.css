@@ -4,6 +4,10 @@
 
 /* Questo e' un commento */
 
+.body{
+    background-color: moccasin;
+}
+
 .titoloPaginaWeb{
     text-align: center;
 }
