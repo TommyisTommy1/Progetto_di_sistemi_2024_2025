@@ -1,0 +1,82 @@
+/*
+    Questo file serve ad indicare i dettagli e abbellire la pagina web che lo usa
+*/
+
+/* Questo e' un commento */
+
+@font-face {
+    font-family: 'FormulaOne';
+    src: url('fonts/Formula1-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1{
+    font-family: 'FormulaOne', sans-serif;
+    
+}
+
+/* Lo stile per la finestra modale */
+.modal {
+    display: none; /* La finestra modale è nascosta di default */
+    position: fixed;
+    z-index: 1; /* Assicura che la finestra modale sia sopra il contenuto della pagina */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Se la finestra è troppo grande, consente di scorrere */
+    background-color: rgba(0, 0, 0, 0.4); /* Colore di sfondo trasparente per il buio dello sfondo */
+}
+
+/* Lo stile per il contenuto della finestra modale */
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Puoi modificare la larghezza della finestra */
+    max-width: 600px;
+}
+
+/* Stile per il pulsante di chiusura */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Stile per la colonna con le immagini delle bandiere */
+td img {
+    width: 20px;
+    height: auto;
+}
+
+/* Stile per i colori alternati delle righe */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
