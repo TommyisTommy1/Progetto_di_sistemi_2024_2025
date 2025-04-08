@@ -16,6 +16,10 @@
     // Inizializzo i dati della sessione
     inizializzaSessione();
     
+    if($_SESSION['accesso'] == false){
+        header("Location: login_accesso.php");
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -71,47 +75,61 @@
     <div class="biografia">
 
         <!-- Immagine del profilo -->
-        <img src="" alt="ImmagineProfilo">
+        <img src="<?php echo $_SESSION['immagineProfilo']; ?>" alt="ImmagineProfilo">
 
         <!-- Divisore per indicare la parte del nome -->       
         <div class="nome">
             Nome: 
-            <span class="datiBiografia"></span>
+            <span class="datiBiografia">
+                <?php echo $_SESSION['nome']; ?>
+            </span>
         </div>
 
         <!-- Divisore per indicare la parte del cognome -->
         <div class="cognome">
             Cognome: 
-            <span class="datiBiografia"></span>
+            <span class="datiBiografia">
+                <?php echo $_SESSION['cognome']; ?>
+            </span>
         </div>
         
         <!-- Divisore per indicare la parte del sesso -->
         <div class="sesso">
             Sesso: 
-            <span class="datiBiografia"></span>
+            <span class="datiBiografia">
+                <?php echo $_SESSION['sesso']; ?>
+            </span>
         </div>
         
         <!-- Divisore per indicare la parte della localita' -->
         <div class="localita">
             Localita': 
-            <span class="datiBiografia"></span>
+            <span class="datiBiografia">
+                <?php echo $_SESSION['localita']; ?>
+            </span>
         </div>
         
         <!-- Divisore per indicare la parte dello username -->
         <div class="username">
             Username: 
-            <span class="datiBiografia"></span>
+            <span class="datiBiografia">
+                <?php echo $_SESSION['username']; ?>
+            </span>
         </div>
         
         <!-- Divisore per indicare la parte della mail -->
         <div class="mail">
             Mail: 
-            <span class="datiBiografia"></span>
+            <span class="datiBiografia">
+                <?php echo $_SESSION['mail']; ?>
+            </span>
         </div>
         
         <!-- Divisore per indicare la parte della password -->
         <div class="password">
-            Password: <span class="datiBiografia"></span>
+            Password: <span class="datiBiografia">
+                <?php echo $_SESSION['password']; ?>
+            </span>
         </div>
     </div>
 

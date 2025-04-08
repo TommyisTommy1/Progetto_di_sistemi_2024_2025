@@ -5,12 +5,12 @@ bottoneCambiaOperazione.addEventListener('click', function() {
     if(operazione % 2 == 0){
         operazione++;
         daMostrare = ottieniLogin();
-        operazioneFatta = "login";
+        document.getElementById("operazioneFatta") = "login";
         document.getElementById("parteFinale").classList.remove("parteFinaleStatic");
     }else{
         operazione--;
         daMostrare = ottieniAccesso();
-        operazioneFatta = "accesso";
+        document.getElementById("operazioneFatta") = "accesso";
         document.getElementById("parteFinale").classList.add("parteFinaleStatic");
     }
 

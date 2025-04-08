@@ -49,9 +49,16 @@
             <div class="dati" id="dati"></div>
             <br>
             <input type="submit" name="submitDati" id="submitDati" class="submitDati" value="Invia i dati inseriti">
+            <input type="hidden" name="operazioneFatta" id="operazioneFatta" value="-">
         </form>
 
-        <div class="errori"></div>
+        <div class="errori">
+            <?php 
+                if(isset($_GET['err'])){
+                    echo $_GET['err'];
+                }
+            ?>
+        </div>
     </div>
 
     <!-- Divisore per indicare la parte per tornare alla home page -->
