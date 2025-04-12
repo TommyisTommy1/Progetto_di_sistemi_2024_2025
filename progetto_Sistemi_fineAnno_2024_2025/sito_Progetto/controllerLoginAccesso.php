@@ -19,6 +19,14 @@
         // variabile per mostrare all'utente eventuali errori
         $err = "";
 
+        if($_POST['operazioneFatta'] === "-"){
+
+            // Se non ho selezionato nessuna operazione, mostro un errore
+            $err = "<br>Non hai inserito nessun dato, clicca il bottone per inserirli";
+            header("Location: login_accesso.php?err=".$err);
+            exit();
+        }
+
         // Non ho accettato i termini e le condizioni
         if($_POST['accettoTeminiCondizioni'] == false){
             $err .= "<br>Non hai accettato i nostri termini e condizioni";
