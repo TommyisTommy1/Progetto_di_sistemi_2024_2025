@@ -20,6 +20,10 @@
         header("Location: login_accesso.php");
         exit();
     }
+
+    require_once "database/include_database/includeFunzioniDatabase.php";
+
+    $datiUtente = ottieniDatiUtente($_SESSION['username'], $_SESSION['mail']);
 ?>
 
 <!DOCTYPE html>
@@ -75,13 +79,15 @@
     <div class="biografia">
 
         <!-- Immagine del profilo -->
-        <img src="<?php echo $_SESSION['immagineProfilo']; ?>" alt="ImmagineProfilo">
+        <div class="immagineProfilo">
+            <img src="<?php echo (!empty($datiUtente['immagineProfilo']))? $datiUtente['immagineProfilo'] : "img/img_pagina_profilo/utente.png" ?>" alt="ImmagineProfilo">
+        </div>
 
         <!-- Divisore per indicare la parte del nome -->       
         <div class="nome">
             Nome: 
             <span class="datiBiografia">
-                <?php echo $_SESSION['nome']; ?>
+                <input type="text" class="campoNomeUtente" id="campoNomeUtente" value="<?php echo $datiUtente['nome'] ?>" readonly>
             </span>
         </div>
 
@@ -89,7 +95,7 @@
         <div class="cognome">
             Cognome: 
             <span class="datiBiografia">
-                <?php echo $_SESSION['cognome']; ?>
+                <input type="text" class="campoCognomeUtente" id="campoCognomeUtente" value="<?php echo $datiUtente['cognome']; ?>" readonly>
             </span>
         </div>
         
@@ -97,7 +103,7 @@
         <div class="sesso">
             Sesso: 
             <span class="datiBiografia">
-                <?php echo $_SESSION['sesso']; ?>
+                <input type="text" class="campoSessoUtente" id="campoSessoUtente" value="<?php echo $datiUtente['sesso']; ?>" readonly>
             </span>
         </div>
         
@@ -105,7 +111,7 @@
         <div class="localita">
             Localita': 
             <span class="datiBiografia">
-                <?php echo $_SESSION['localita']; ?>
+                <input type="text" class="campoLocalitaUtente" id="campoLocalitaUtente" value="<?php echo $datiUtente['localita']; ?>" readonly>
             </span>
         </div>
         
@@ -113,7 +119,7 @@
         <div class="username">
             Username: 
             <span class="datiBiografia">
-                <?php echo $_SESSION['username']; ?>
+                <input type="text" class="campoUsernameUtente" id="campoUsernameUtente" value="<?php echo $datiUtente['username']; ?>" readonly>
             </span>
         </div>
         
@@ -121,15 +127,16 @@
         <div class="mail">
             Mail: 
             <span class="datiBiografia">
-                <?php echo $_SESSION['mail']; ?>
+                <input type="text" class="campoMailUtente" id="campoMailUtente" value="<?php echo $datiUtente['mail']; ?>" readonly>
             </span>
         </div>
         
-        <!-- Divisore per indicare la parte della password -->
+        <!-- Divisore per indicare la parte della password (Verra' mostrato l'hash) -->
         <div class="password">
             Password: <span class="datiBiografia">
-                <?php echo $_SESSION['password']; ?>
+                <input type="password" class="campoPasswordUtente" id="campoPasswordUtente" value="<?php echo $datiUtente['password']; ?>" readonly>
             </span>
+            <input type="checkbox" class="bottoneMostraPassword" id="bottoneMostraPassword">
         </div>
     </div>
 

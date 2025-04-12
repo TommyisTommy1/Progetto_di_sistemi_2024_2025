@@ -10,7 +10,7 @@
     //creo l'oggetto db che si riferisce ai dati degli utenti
     $usersStore = new \SleekDB\Store("utente", $databaseDirectory, $configuration);
     
-    require_once "../includeFunzioniDiGestione/includeFunzioniHashing.php";
+    require_once "includeFunzioniHashing.php";
 
     
     function creaNuovoUserDatabase($nome, $cognome, $dataNascita, $sesso, $residenza, $username, $mail, $password){
@@ -31,6 +31,7 @@
 
         // Salvataggio dei dati per il criterio
         $utente = [
+            "immagineProfilo" => "",
             "nome" => $nome,
             "cognome" => $cognome,
             "dataNascita" => $dataNascita,
@@ -78,20 +79,17 @@
         return true;
     }
 
-    function ottieniDatiUtente($mail, $password){
+    function ottieniDatiUtente($username, $mail){
         // Funzione per cambiare i dati dell'utente
         // Recupero i dati dell'utente dal database e li modifico
         // Salvo i dati modificati nel database
 
         global $usersStore;
-
-        // Faccio l'hash della password
-        $password = creaHashPassword($password);
         
         // Creo un criterio per trovare nel database l'utente
         $utente = [
-            "mail" => $mail,
-            "password" => $password
+            "username" => $username,
+            "mail" => $mail
         ];
         
         // Ottengo l'utente (se c'e' torna un array, se non c'e' torna null)
