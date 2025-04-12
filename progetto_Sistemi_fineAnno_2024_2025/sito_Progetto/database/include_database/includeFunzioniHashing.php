@@ -1,6 +1,6 @@
 <?php
     // File di configurazione per l'hashing delle password
-    require_once "../../database/include_database/fileConfigurazione.php";
+    require_once "fileConfigurazione.php";
 
     // Crea un hash della password
     function creaHashPassword($password){

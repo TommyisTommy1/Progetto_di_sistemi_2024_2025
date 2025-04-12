@@ -1,10 +1,10 @@
 <?php
     /* START ------ CODICE DA COPIARE NELLE PAGINE DOVE UTILIZZO IL DATABASE ----- */
     // Libreria https://sleekdb.github.io/
-    require_once "../sleekdb/Store.php";
+    require_once __DIR__ . "/../sleekdb/Store.php";
     $configuration = ["timeout" => false]; // Senza questa riga segnala un errore
     // Cartella in cui vengono salvati i dati, può essere modificata
-    $databaseDirectory = __DIR__ . "../myDatabase"; 
+    $databaseDirectory = __DIR__ . "/../myDatabase"; 
     /* END ------ CODICE DA COPIARE NELLE PAGINE DOVE UTILIZZO IL DATABASE ------- */
     
     //creo l'oggetto db che si riferisce ai dati degli utenti
@@ -58,13 +58,13 @@
         
         // Creo un criterio per trovare nel database l'utente
         $utente = [
-            "mail" => $mail,
-            "password" => $password
+            ["mail", "=", $mail],
+            ["password", "=", $password]
         ];
         
         // Se l'username è stato inserito, lo aggiungo al criterio
         if(!empty($username)){
-            $utente["username"] = $username;
+            $utente[] = ["username", "=", $username];
         }
         
         // Trovo l'utente (se c'e' torna un array, se non c'e' torna null)
@@ -72,12 +72,12 @@
 
         if(!empty($risultato)){
             
-            // L'utente non è stato trovato
-            return false;
+            // L'utente è stato trovato
+            return true;
         }
 
-        // L'utente è stato trovato
-        return true;
+        // L'utente non è stato trovato
+        return false;
     }
 
     // Funzione per cambiare i dati dell'utente
@@ -85,11 +85,12 @@
 
         global $usersStore;
         
-        // Creo un criterio per trovare nel database l'utente
-        $utente = [
-            "username" => $username,
-            "mail" => $mail
-        ];
+        // Creo un criterio per trovare nel database l'utente        
+        $utente[] = ["mail", "=", $mail];
+
+        if(!empty($username)){
+            $utente[] = ["username", "=", $username];
+        }
         
         // Ottengo l'utente (se c'e' torna un array, se non c'e' torna null)
         $risultato = $usersStore -> findOneBy($utente);
@@ -161,7 +162,7 @@
             $tabella .= "<td>" . $utenti[$i]["dataNascita"] . "</td>";
             $tabella .= "<td>" . $utenti[$i]["sesso"] . "</td>";
             $tabella .= "<td>" . $utenti[$i]["residenza"] . "</td>";
-            $tabella .= "<td>" . $utenti[$i]["username"] . "</td>";
+            $tabella .= "<td>" . ($utenti[$i]["username"])? $utenti[$i]["username"] : "" . "</td>";
             $tabella .= "<td>" . $utenti[$i]["mail"] . "</td>";
             $tabella .= "<td>" . $utenti[$i]["password"] . "</td>";
             

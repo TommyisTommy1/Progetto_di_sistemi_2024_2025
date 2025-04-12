@@ -95,7 +95,7 @@ function ottieniSesso(tipo){
 function inserisciResidenza(){
     let localita = "<br>";
     localita += "<label for='residenza'>Inserisci la localita': </label>";
-    localita += "<select name='residenza' id='residenza'>";
+    localita += "<select name='residenza' id='residenza' required>";
     localita += "<option value='SelezionaLocalita'>Seleziona una localita</option>";
 
     for(let i = 0; i < citta.length; i++){

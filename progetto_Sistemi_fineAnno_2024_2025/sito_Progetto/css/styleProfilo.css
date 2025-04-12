@@ -22,9 +22,6 @@ body{
 }
 
 .biografia{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     text-align: center;
     padding: 20px;
     background-color: #f0f0f0;
@@ -35,15 +32,21 @@ body{
     transition: background-color 0.3s ease;
     cursor: pointer;
     margin-bottom: 20px;
-    padding: 20px;
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
 
+.biografia div{
+    padding: 10px;
+}
+
 .immagineProfilo{
-    width: 150px;
-    height: 150px;
     border-radius: 50%;
+    margin: auto;
+}
+
+.datiBiografia{
+    padding: 20px;
 }
 
 .parteFinale {

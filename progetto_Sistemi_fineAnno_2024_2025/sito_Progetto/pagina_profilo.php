@@ -107,11 +107,11 @@
             </span>
         </div>
         
-        <!-- Divisore per indicare la parte della localita' -->
-        <div class="localita">
-            Localita': 
+        <!-- Divisore per indicare la parte della residenza -->
+        <div class="residenza">
+            Residenza': 
             <span class="datiBiografia">
-                <input type="text" class="campoLocalitaUtente" id="campoLocalitaUtente" value="<?php echo $datiUtente['localita']; ?>" readonly>
+                <input type="text" class="campoResidenzaUtente" id="campoResidenzaUtente" value="<?php echo $datiUtente['residenza']; ?>" readonly>
             </span>
         </div>
         
@@ -136,7 +136,7 @@
             Password: <span class="datiBiografia">
                 <input type="password" class="campoPasswordUtente" id="campoPasswordUtente" value="<?php echo $datiUtente['password']; ?>" readonly>
             </span>
-            <input type="checkbox" class="bottoneMostraPassword" id="bottoneMostraPassword">
+            <button type="button" class="bottoneMostraPassword" id="bottoneMostraPassword">Rendi Password visibile</button>
         </div>
     </div>
 
