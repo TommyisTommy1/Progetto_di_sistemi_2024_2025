@@ -6,13 +6,17 @@
     /* START ------ CODICE DA COPIARE NELLE PAGINE DOVE UTILIZZO IL DATABASE ----- */
     // Libreria https://sleekdb.github.io/
 
-    require_once "../database/sleekdb/Store.php";
+    require_once "sleekdb/Store.php";
     $configuration = ["timeout" => false]; // Senza questa riga segnala un errore
 
     // Cartella in cui vengono salvati i dati, può essere modificata
-    $databaseDirectory = __DIR__ . "../database/myDatabase";
+    $databaseDirectory = __DIR__ . "/myDatabase";
 
     /* END ------ CODICE DA COPIARE NELLE PAGINE DOVE UTILIZZO IL DATABASE ------- */
+
+    require_once "include_database/includeFunzioniDatabase.php";
+
+    $datiUtenti = creaTabellaUtenti();
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +38,11 @@
     <div class="tabellaDatiDatabase">
 
         <!-- Tabella che mostra i dati salvati nel database -->
-        <span class="tabellaDatabase"></span>
+        <span class="tabellaDatabase">
+
+            <!-- Tabella che mostra i dati salvati nel database -->
+            <?php echo $datiUtenti; ?>
+        </span>
     </div>
 
     <!-- Divisore per indicare la parte finale della pagina web -->

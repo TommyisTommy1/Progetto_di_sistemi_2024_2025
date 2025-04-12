@@ -12,10 +12,9 @@
     
     require_once "includeFunzioniHashing.php";
 
-    
+    // Funzione per creare un nuovo utente nel database
     function creaNuovoUserDatabase($nome, $cognome, $dataNascita, $sesso, $residenza, $username, $mail, $password){
         
-        // Funzione per creare un nuovo utente nel database
         global $usersStore;
 
         // Controllo se la mail e' già stata utilizzata
@@ -49,7 +48,9 @@
         return true;
     }
 
+    // Funzione per controllare se l'utente esiste nel database
     function recuperaAccessoDatabase($username, $mail, $password){
+
         global $usersStore;
 
         // Faccio l'hash della password
@@ -79,10 +80,8 @@
         return true;
     }
 
+    // Funzione per cambiare i dati dell'utente
     function ottieniDatiUtente($username, $mail){
-        // Funzione per cambiare i dati dell'utente
-        // Recupero i dati dell'utente dal database e li modifico
-        // Salvo i dati modificati nel database
 
         global $usersStore;
         
@@ -96,5 +95,83 @@
         $risultato = $usersStore -> findOneBy($utente);
 
         return $risultato;
+    }
+
+    
+    // Funzione per eliminare un utente dal database
+    function eliminaUtente($datiUtente){
+        global $usersStore;
+
+        // Elimino l'utente dal database
+        $usersStore -> deleteBy($datiUtente);
+    }
+
+    // Funzione per ottenere i dati di tutti gli utenti
+    function ottieniDatiUtenti(){
+
+        global $usersStore;
+        
+        // Ottengo tutti gli utenti (se c'e' torna un array, se non c'e' torna null)
+        $risultato = $usersStore -> findAll();
+
+        if($risultato == null){
+            
+            // Non ci sono utenti nel database
+            return $risultato;
+        }
+
+        // Restituisco i dati degli utenti
+        return $risultato;
+    }
+
+    // Funzione per creare una tabella con i dati degli utenti
+    function creaTabellaUtenti(){
+
+        // Ottengo i dati degli utenti
+        $utenti = ottieniDatiUtenti();
+
+        // Creo la tabella per mostrare i dati degli utenti
+        $tabella = "";
+
+        if($utenti == null){
+            
+            // Non ci sono utenti nel database
+            $tabella .= "<p class='messaggioErrore'>Nessun utente presente nel database</p>";
+            return $tabella;
+        }
+
+        // Creo la tabella
+        $tabella .= "<table class='tabellaUtenti'>";
+        
+        // Aggiungo l'intestazione della tabella
+        $tabella .= "<tr>";
+        $tabella .= "<th coolspan='9'>Tabella Degli Utenti Presenti Nel Database</th>";
+        $tabella .= "</tr>";
+
+        // Aggiungo i dati alla tabella
+        for($i = 0; $i < count($utenti); $i++){
+
+            // Aggiungo una riga alla tabella con i dati dell'utente
+            $tabella .= "<tr>";
+
+            // Aggiungo i dati dell'utente alla tabella
+            $tabella .= "<td><img class='immagineProfilo' src='" . $utenti[$i]["immagineProfilo"] . "' alt='Immagine Profilo'></td>";
+            $tabella .= "<td>" . $utenti[$i]["nome"] . "</td>";
+            $tabella .= "<td>" . $utenti[$i]["cognome"] . "</td>";
+            $tabella .= "<td>" . $utenti[$i]["dataNascita"] . "</td>";
+            $tabella .= "<td>" . $utenti[$i]["sesso"] . "</td>";
+            $tabella .= "<td>" . $utenti[$i]["residenza"] . "</td>";
+            $tabella .= "<td>" . $utenti[$i]["username"] . "</td>";
+            $tabella .= "<td>" . $utenti[$i]["mail"] . "</td>";
+            $tabella .= "<td>" . $utenti[$i]["password"] . "</td>";
+            
+            // La riga è stata completata
+            $tabella .= "</tr>";
+        }
+
+        // Chiudo la tabella
+        $tabella .= "</table>";
+
+        return $tabella;
     }
 ?>
