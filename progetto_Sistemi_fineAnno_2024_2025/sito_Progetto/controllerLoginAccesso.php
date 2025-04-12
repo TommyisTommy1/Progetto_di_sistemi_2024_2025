@@ -4,22 +4,22 @@
     // Inizio o recupero i dati della sessione
     session_start();
 
-    // Includo i file che contengono funzioni che devo utilizzare
-
     // Richiedo la funzione dentro il file che la contiene e la utilizzo prima di fare altre operazioni
     // poiche' cosi' recupero o inizializzo i dati
     require_once "include/includeFunzioniDiGestione/includeFunzioniInizializzazioneSessione.php";
 
     // Inizializzo i dati della sessione
     inizializzaSessione();
+    
+    // Includo i file che contengono funzioni che devo utilizzare
 
     // Se ho cliccato il bottone di accesso o di registrazione
-    if(isset($_POST['submit'])){
+    if(isset($_POST['submitDati'])){
 
         // variabile per mostrare all'utente eventuali errori
         $err = "";
 
-        if($_POST['operazioneFatta'] === "-"){
+        if($_POST['operazioneFatta'] == "-"){
 
             // Se non ho selezionato nessuna operazione, mostro un errore
             $err = "<br>Non hai inserito nessun dato, clicca il bottone per inserirli";
@@ -27,13 +27,21 @@
             exit();
         }
 
-        // Non ho accettato i termini e le condizioni
-        if($_POST['accettoTeminiCondizioni'] == false){
-            $err .= "<br>Non hai accettato i nostri termini e condizioni";
+        // Se ho selezionato login
+        if($_POST['operazioneFatta'] == "login"){
+            
+            // E non ho accettato i termini e le condizioni
+            if($_POST['accettoTeminiCondizioni'] == false){
+
+                // Se non ho accettato i termini e le condizioni, mostro un errore
+                $err .= "<br>Non hai accettato i nostri termini e condizioni";
+            }
         }
 
         // La password inserita non combacia
         if($_POST['password'] != $_POST['confermaPassword']){
+
+            // Se la password non combacia, mostro un errore
             $err .= "<br>Hai inserito una password diversa da quella che hai inserito prima, reinseriscila";
         }
         
@@ -64,6 +72,8 @@
                 case "login":
                     $risultato = creaNuovoUserDatabase($nome, $cognome, $dataNascita, $sesso, $residenza, $username, $mail, $password);
                     if($risultato == false){
+
+                        // Se l'utente non e' stato creato, mostro un errore
                         $err = "<br>Non e' stato possibile creare l'utente a causa dell'esistenza della mail";
                     }
                     break;
@@ -72,6 +82,8 @@
                 case "accesso":
                     $risultato = recuperaAccessoDatabase($username, $mail, $password);
                     if($risultato == false){
+
+                        // Se l'utente non e' stato trovato, mostro un errore
                         $err = "<br>Non e' stato possibile accedere poiche' non si sono trovati i dati";
                     }
                     break;
