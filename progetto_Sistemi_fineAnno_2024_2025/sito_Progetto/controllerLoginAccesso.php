@@ -13,61 +13,87 @@
     // Inizializzo i dati della sessione
     inizializzaSessione();
 
-    $err = "";
+    // Se ho cliccato il bottone di accesso o di registrazione
     if(isset($_POST['submit'])){
+
+        // variabile per mostrare all'utente eventuali errori
+        $err = "";
+
+        // Non ho accettato i termini e le condizioni
         if($_POST['accettoTeminiCondizioni'] == false){
             $err .= "<br>Non hai accettato i nostri termini e condizioni";
         }
 
+        // La password inserita non combacia
         if($_POST['password'] != $_POST['confermaPassword']){
             $err .= "<br>Hai inserito una password diversa da quella che hai inserito prima, reinseriscila";
         }
         
-        if($err != ""){
+        // Una/tutte e due tra queste informazioni principali non va/vanno bene
+        if($err == ""){
 
+            // Creo una variabile per mostrare se va tutto a buon fine o no
             $risultato = false;
 
+            // Includo le funzioni per controllare all'interno del database
+            require_once "database/include_database/includeFunzioniDatabase.php";
+
+            // Creo variabili per contenere i dati dell'utente
+            $nome = (isset($_POST['nome'])) ? $_POST['nome'] : "";
+            $cognome = (isset($_POST['cognome'])) ? $_POST['cognome'] : "";
+            $dataNascita = (isset($_POST['dataNascita'])) ? $_POST['dataNascita'] : "";
+            $sesso = (isset($_POST['sesso'])) ? $_POST['sesso'] : "";
+            $residenza = (isset($_POST['residenza'])) ? $_POST['residenza'] : "";
+            $username = (isset($_POST['username'])) ? $_POST['username'] : "";
+            $mail = $_POST['mail']; // Richiesta necessaria
+            $password = $_POST['password']; // Richiesta necessaria
+
             // Controllo se esistono o sono corretti i dati inseriti
+            // risultato diventa true se esiste l'utente
             switch($_POST['operazioneFatta']){
+
+                // L'utente ha fatto il login
                 case "login":
-                    creaNuovoUser($_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST[''], $_POST['']);
-                    $risultato = true;
+                    $risultato = creaNuovoUserDatabase($nome, $cognome, $dataNascita, $sesso, $residenza, $username, $mail, $password);
+                    if($risultato == false){
+                        $err = "<br>Non e' stato possibile creare l'utente a causa dell'esistenza della mail";
+                    }
                     break;
 
+                // L'utente ha fatto l'accesso
                 case "accesso":
-                    recuperaAccesso($_POST[''], $_POST[''], $_POST['']);
+                    $risultato = recuperaAccessoDatabase($username, $mail, $password);
+                    if($risultato == false){
+                        $err = "<br>Non e' stato possibile accedere poiche' non si sono trovati i dati";
+                    }
                     break;
 
+                // Caso improbabile se non impossibile
                 default:
-                    $err = "Non hai inserito nessun dato, clicca il bottone per inserirli";
+                    $err = "<br>Non hai inserito nessun dato, clicca il bottone per inserirli";
             }
 
-            if($risultato == false){
-                
-                // I dati inseriti non sono corretti
-                $err .= "<br>Non sono stati trovati utenti con le tue credenziali nel nostro database.";
-            }else{
-                
-                // I dati inseriti sono giusti
+            // Controllo il risutato
+            if($risultato == true){
 
+                // L'utente e' stato trovato o creato
+                // Salvo i dati dell'utente nella sessione (solo quelli che possono non essere sensibili)
+                $_SESSION['username'] = $username;
+                $_SESSION['mail'] = $mail;
+                $_SESSION['accesso'] = true;
             }
         }
+
+        // Se ci sono stati errori, li mostro
+        if($err != ""){
+
+            // Ritorno alla pagina di login/accesso con gli errori
+            header("Location: login_accesso.php?err=".$err);
+            exit();
+        }
+    
+        // Se non ci sono stati errori, vado alla pagina del profilo
+        header("Location: pagina_profilo.php");
     }
 
-    if($err != ""){
-        header("Location: login_accesso.php?err=".$err);
-        exit();
-    }
-
-    header("Location: pagina_profilo.php");
-?>
-
-<?php
-    function creaNuovoUser($nome, $cognome, $dataNascita, $sesso, $residenza, $username, $mail, $password){
-
-    }
-
-    function recuperaAccesso($username, $mail, $password){
-
-    }
 ?>

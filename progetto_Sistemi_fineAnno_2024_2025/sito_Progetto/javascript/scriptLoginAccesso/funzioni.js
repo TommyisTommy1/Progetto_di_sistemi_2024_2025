@@ -103,7 +103,7 @@ function inserisciUsername(){
 function inserisciMail(){
     let mail = "<br>";
     mail += "<label for='mail'>Inserisci la mail: </label>";
-    mail += "<input type='mail' name='mail' id='mail' class='mail' placeholder='mail.prova@gmail.com' />";
+    mail += "<input type='mail' name='mail' id='mail' class='mail' placeholder='mail.prova@gmail.com' required />";
     return mail;
 }
 

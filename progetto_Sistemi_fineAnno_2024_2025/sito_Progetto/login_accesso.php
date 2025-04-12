@@ -37,6 +37,7 @@
 
     <!-- Divisore per indicare il bottone per cambiare operazione -->
     <div class="cambiaOperazione">
+
         <!-- Bottone per cambiare operazione da login a registrazione o viceversa -->
         <input type="button" class="bottoneCambiaOperazione" id="bottoneCambiaOperazione" value="clicca per cambiare operazione" />
     </div>
@@ -46,15 +47,25 @@
 
         <!-- Form che serve per inviare i dati -->
         <form action="controllerLoginAccesso.php" method="post">
+
+            <!-- Divisore che conterra' i dati per il login o l'accesso(usando lo script di javascript) -->
             <div class="dati" id="dati"></div>
             <br>
+            <!-- Divisore che serve per inviare i dati -->
             <input type="submit" name="submitDati" id="submitDati" class="submitDati" value="Invia i dati inseriti">
+
+            <!-- Divisore che serve per indicare che operazione si ha fatto -->
             <input type="hidden" name="operazioneFatta" id="operazioneFatta" value="-">
         </form>
 
+        <!-- Divisore che serve per indicare gli errori -->
         <div class="errori">
-            <?php 
+            <?php
+
+                // Controllo se ci sono stati errori durante il login/accesso al database
                 if(isset($_GET['err'])){
+
+                    // Mostro gli errori
                     echo $_GET['err'];
                 }
             ?>

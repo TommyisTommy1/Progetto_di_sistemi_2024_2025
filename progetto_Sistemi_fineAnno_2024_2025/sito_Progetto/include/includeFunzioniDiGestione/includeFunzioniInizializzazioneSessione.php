@@ -23,7 +23,19 @@
 
             // Inizializzo l'accesso a false
             $_SESSION['accesso'] = false;
+
+            // Inizializzo la mail
+            $_SESSION['mail'] = null;
         }
     }
     
+    // Funzione per distruggere la sessione
+    function distruggiSessione($paginaWeb){
+        // Distruggo la sessione
+        session_destroy();
+        
+        // Reindirizzo l'utente alla pagina di login
+        header("Location: $paginaWeb");
+        exit();
+    }
 ?>
