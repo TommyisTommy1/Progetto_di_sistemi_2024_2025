@@ -15,7 +15,6 @@
 
     // Inizializzo i dati della sessione
     inizializzaSessione();
-    
 ?>
 
 <!DOCTYPE html>
@@ -23,16 +22,16 @@
 <head> <!-- Testa della pagina web -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login_Accesso</title> <!-- Titolo della Pagina Web -->
-    <link rel="stylesheet" href="css/styleLoginAccesso.css"> <!-- Link al file Css che verra' usato per abbellire la pagina web -->
-    <script type="text/javascript" src="javascript/scriptLoginAccesso/funzioni.js"></script>
-    <script type="text/javascript" src="javascript/scriptLoginAccesso/variabili.js"></script>
+    <title>Registrazione_Accesso</title> <!-- Titolo della Pagina Web -->
+    <link rel="stylesheet" href="css/styleRegistrazioneAccesso.css"> <!-- Link al file Css che verra' usato per abbellire la pagina web -->
+    <script type="text/javascript" src="javascript/scriptRegistrazioneAccesso/funzioni.js"></script>
+    <script type="text/javascript" src="javascript/scriptRegistrazioneAccesso/variabili.js"></script>
 </head> <!-- Fine intestazione -->
 <body> <!-- Corpo della pagina web -->
     
     <!-- Titolo della Pagina web con decorazioni date dalla classe titoloPaginaWeb all'interno del Css -->
     <h1 class="titoloPaginaWeb">
-        Login / Accesso
+        Registrazione / Accesso
     </h1>
 
     <!-- Divisore per indicare il bottone per cambiare operazione -->
@@ -43,10 +42,10 @@
     </div>
 
     <!-- Divisore per indicare la parte del login/accesso -->
-    <div class="login_accesso">
+    <div class="registrazione_accesso">
 
         <!-- Form che serve per inviare i dati -->
-        <form action="controllerLoginAccesso.php" method="post">
+        <form action="controllerRegistrazioneAccesso.php" method="post">
 
             <!-- Divisore che conterra' i dati per il login o l'accesso(usando lo script di javascript) -->
             <div class="dati" id="dati"></div>
@@ -100,6 +99,6 @@
     </div>
 
     <!-- Script javascript che verra' usato dalla pagina web -->
-    <script type="text/javascript" src="javascript/scriptLoginAccesso/scriptLoginAccesso.js"></script>
+    <script type="text/javascript" src="javascript/scriptRegistrazioneAccesso/scriptRegistrazioneAccesso.js"></script>
 </body> <!-- Fine corpo -->
 </html>

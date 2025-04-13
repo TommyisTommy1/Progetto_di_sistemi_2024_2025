@@ -1,0 +1,82 @@
+/*
+    Questo file serve ad indicare i dettagli e abbellire la pagina web che lo usa
+*/
+
+/* Questo e' un commento */
+
+body{
+    background-color: moccasin;
+}
+
+.titoloPaginaWeb{
+    text-align: center;
+}
+
+.dati{
+
+}
+
+.cambiaOperazione{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.bottoneCambiaOperazione{
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    box-shadow: 2px 2px 4px black;
+    margin-top: 20px;
+    margin-bottom: 20px; 
+}
+
+.submitDati{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    background-color: aquamarine;
+    color: brown;
+    border: none;
+    font-family: monospace;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+    box-shadow: 2px 2px 4px black;
+}
+
+.parteFinale {
+}
+
+.parteFinale {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.parteFinaleStatic{
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+}
+
+.copyright, .termini_condizioni {
+    padding: 20px;
+}
+
+.termini_condizioni {
+    text-align: right;
+}

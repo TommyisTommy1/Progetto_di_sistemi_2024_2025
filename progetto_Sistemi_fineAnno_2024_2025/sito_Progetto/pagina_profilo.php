@@ -17,13 +17,68 @@
     inizializzaSessione();
     
     if($_SESSION['accesso'] == false){
-        header("Location: login_accesso.php");
+        header("Location: registrazione_accesso.php");
         exit();
     }
-
+    
     require_once "database/include_database/includeFunzioniDatabase.php";
-
+    
     $datiUtente = ottieniDatiUtente($_SESSION['username'], $_SESSION['mail']);
+
+    if(isset($_POST['bottoneEliminaAccount'])){
+        // Se l'utente ha premuto il bottone per eliminare l'account
+
+        $criterioEliminazione = [
+            ["nome", "=", $datiUtente['nome']],
+            ["cognome", "=", $datiUtente['cognome']],
+            ["dataNascita", "=", $datiUtente['dataNascita']],
+            ["sesso", "=", $datiUtente['sesso']],
+            ["residenza", "=", $datiUtente['residenza']],
+            ["mail", "=", $datiUtente['mail']],
+            ["password", "=", $datiUtente['password']]
+        ];
+        
+        if(isset($datiUtente['immagineProfilo'])){
+            $criterioEliminazione[] = ["immagineProfilo", "=", $datiUtente['immagineProfilo']];
+        }
+
+        if(isset($datiUtente['username'])){
+            $criterioEliminazione[] = ["username", "=", $datiUtente['username']];
+        }
+
+        // Elimino l'account dell'utente e chiudo la sessione
+        eliminaUtente($criterioEliminazione);
+    }
+    
+    // Se l'utente ha premuto il bottone per chiudere la sessione o per eliminare l'account
+    if(isset($_POST['bottoneChiudiSessione']) || isset($_POST['bottoneEliminaAccount']) || $datiUtente == null){
+
+        $err = "";
+
+        // Se l'utente ha premuto il bottone per chiudere la sessione
+        if(isset($_POST['bottoneChiudiSessione'])){
+
+            // Messaggio di chiusura sessione
+            $err = "Sessione chiusa con successo!";
+        }
+
+        // Se l'utente ha premuto il bottone per eliminare l'account
+        if(isset($_POST['bottoneEliminaAccount'])){
+
+            // Messaggio di eliminazione account
+            $err = "Account eliminato con successo!";
+        }
+
+        // Credenziali non trovate
+        if($datiUtente == null){
+
+            // Messaggio di errore
+            $err = "Credenziali non trovate";
+        }
+
+        // Chiudo la sessione e reindirizzo alla pagina di login
+        distruggiSessioneConPassaParametriErrore("registrazione_accesso.php", $err);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -138,6 +193,20 @@
             </span>
             <button type="button" class="bottoneMostraPassword" id="bottoneMostraPassword">Rendi Password visibile</button>
         </div>
+    </div>
+
+    <div class="chiudiSessione">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            
+            <!-- Bottone per modificare i dati del profilo -->
+            <input type="button" class="bottoneModificaDati" id="bottoneModificaDati" name="bottoneModificaDati" value="Modifica Dati">
+            
+            <!-- Bottone per chiudere la sessione -->
+            <input type="submit" class="bottoneChiudiSessione" id="bottoneChiudiSessione" name="bottoneChiudiSessione" value="Chiudi Sessione">
+
+            <!-- Bottone per eliminare l'account -->
+            <input type="submit" class="bottoneEliminaAccount" id="bottoneEliminaAccount" name="bottoneEliminaAccount" value="Elimina Account">
+        </form>
     </div>
 
     <!-- Divisore per indicare la parte finale della pagina web -->

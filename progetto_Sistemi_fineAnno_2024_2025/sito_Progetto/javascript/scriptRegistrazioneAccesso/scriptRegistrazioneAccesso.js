@@ -11,14 +11,14 @@ bottoneCambiaOperazione.addEventListener('click', function() {
     // Controllo operazione da fare
     if(operazione % 2 == 0){
 
-        // Operazione di login
+        // Operazione di registrazione
         operazione++;
 
-        // Funzione per ottenere i dati di login
-        daMostrare = ottieniLogin();
+        // Funzione per ottenere i dati di registrazione
+        daMostrare = ottieniRegistrazione();
 
         // Assegno l'operazione fatta
-        document.getElementById("operazioneFatta").value = "login";
+        document.getElementById("operazioneFatta").value = "registrazione";
 
         // Rimuovo la classe per rendere statico il div
         document.getElementById("parteFinale").classList.remove("parteFinaleStatic");

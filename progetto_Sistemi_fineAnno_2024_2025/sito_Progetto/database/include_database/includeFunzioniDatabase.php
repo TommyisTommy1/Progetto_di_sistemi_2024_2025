@@ -70,14 +70,14 @@
         // Trovo l'utente (se c'e' torna un array, se non c'e' torna null)
         $risultato = $usersStore -> findOneBy($utente);
 
-        if(!empty($risultato)){
+        if(empty($risultato)){
             
-            // L'utente è stato trovato
-            return true;
+            // L'utente non è stato trovato
+            return false;
         }
 
-        // L'utente non è stato trovato
-        return false;
+        // L'utente è stato trovato
+        return true;
     }
 
     // Funzione per cambiare i dati dell'utente

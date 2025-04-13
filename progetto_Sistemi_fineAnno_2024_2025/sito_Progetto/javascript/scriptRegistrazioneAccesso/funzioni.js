@@ -2,7 +2,7 @@
 // Funzioni per la gestione del login e dell'accesso
 
 // Funzione per ottenere il login
-function ottieniLogin(){
+function ottieniRegistrazione(){
 
     // Inizializza una stringa vuota per il login
     let login = "";

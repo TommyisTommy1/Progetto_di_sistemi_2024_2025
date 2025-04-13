@@ -31,11 +31,28 @@
     
     // Funzione per distruggere la sessione
     function distruggiSessione($paginaWeb){
+        
+        // Distruggo tutte le variabili di sessione
+        session_unset();
+        
         // Distruggo la sessione
         session_destroy();
         
         // Reindirizzo l'utente alla pagina di login
         header("Location: $paginaWeb");
+        exit();
+    }
+
+    function distruggiSessioneConPassaParametriErrore($paginaWeb, $messaggioErrore){
+        
+        // Distruggo tutte le variabili di sessione
+        session_unset();
+                
+        // Distruggo la sessione
+        session_destroy();
+
+        // Reindirizzo l'utente alla pagina di login
+        header("Location: $paginaWeb?err=$messaggioErrore");
         exit();
     }
 ?>

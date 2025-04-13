@@ -23,12 +23,12 @@
 
             // Se non ho selezionato nessuna operazione, mostro un errore
             $err = "<br>Non hai inserito nessun dato, clicca il bottone per inserirli";
-            header("Location: login_accesso.php?err=".$err);
+            header("Location: registrazione_accesso.php?err=".$err);
             exit();
         }
 
-        // Se ho selezionato login
-        if($_POST['operazioneFatta'] == "login"){
+        // Se ho selezionato registrazione
+        if($_POST['operazioneFatta'] == "registrazione"){
             
             // E non ho accettato i termini e le condizioni
             if($_POST['accettoTeminiCondizioni'] == false){
@@ -69,7 +69,7 @@
             switch($_POST['operazioneFatta']){
 
                 // L'utente ha fatto il login
-                case "login":
+                case "registrazione":
                     $risultato = creaNuovoUserDatabase($nome, $cognome, $dataNascita, $sesso, $residenza, $username, $mail, $password);
                     if($risultato == false){
 
@@ -104,11 +104,13 @@
             }
         }
 
+        error_log("Operazione: " . $_POST['operazioneFatta']);
+        
         // Se ci sono stati errori, li mostro
         if($err != ""){
 
-            // Ritorno alla pagina di login/accesso con gli errori
-            header("Location: login_accesso.php?err=".$err);
+            // Ritorno alla pagina di registrazione/accesso con gli errori
+            header("Location: registrazione_accesso.php?err=".$err);
             exit();
         }
     
