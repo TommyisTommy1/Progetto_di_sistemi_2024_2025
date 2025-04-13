@@ -103,8 +103,6 @@
                 $_SESSION['accesso'] = true;
             }
         }
-
-        error_log("Operazione: " . $_POST['operazioneFatta']);
         
         // Se ci sono stati errori, li mostro
         if($err != ""){

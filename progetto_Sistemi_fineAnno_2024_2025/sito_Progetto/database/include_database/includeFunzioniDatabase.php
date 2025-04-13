@@ -30,15 +30,15 @@
 
         // Salvataggio dei dati per il criterio
         $utente = [
-            "immagineProfilo" => "",
-            "nome" => $nome,
-            "cognome" => $cognome,
-            "dataNascita" => $dataNascita,
-            "sesso" => $sesso,
-            "residenza" => $residenza,
-            "username" => $username,
-            "mail" => $mail,
-            "password" => $password
+            ["immagineProfilo", "=", ""],
+            ["nome", "=", "$nome"],
+            ["cognome", "=", "$cognome"],
+            ["dataNascita", "=", "$dataNascita"],
+            ["sesso", "=", "$sesso"],
+            ["residenza", "=", "$residenza"],
+            ["username", "=", "$username"],
+            ["mail", "=", "$mail"],
+            ["password", "=", "$password"]
         ];
 
         // Inserisco il nuovo utente al database
@@ -70,7 +70,7 @@
         // Trovo l'utente (se c'e' torna un array, se non c'e' torna null)
         $risultato = $usersStore -> findOneBy($utente);
 
-        if(empty($risultato)){
+        if($risultato == null){
             
             // L'utente non è stato trovato
             return false;
