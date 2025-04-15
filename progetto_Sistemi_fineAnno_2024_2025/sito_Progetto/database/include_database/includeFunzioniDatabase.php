@@ -62,8 +62,11 @@
         $password = creaHashPassword($password);
         
         // Creo un criterio per trovare nel database l'utente
-        $utente = ottieniArrayUsernameMail($username, $mail);
-        $utente[] = ["password", "=", $password];
+        $utente = [
+            "password" => $password, 
+            "mail" => $mail,
+            "username" => $username
+        ];
         
         // Trovo l'utente (se c'e' torna un array, se non c'e' torna null)
         $risultato = $usersStore -> findOneBy($utente);
@@ -84,10 +87,31 @@
         global $usersStore;
         
         // Creo un criterio per trovare nel database l'utente        
-        $utente = ottieniArrayUsernameMail($username, $mail);
+        $utente = [
+            "mail" => $mail,
+            "username" => $username
+        ];
 
         // Ottengo l'utente (se c'e' torna un array, se non c'e' torna null)
         $risultato = $usersStore -> findOneBy($utente);
+
+        if($risultato != null){
+
+            // Ritorno i dati dell'utente
+            $risultato = function ($risultato){
+                return [
+                    "immagineProfilo" => $risultato['immagineProfilo'],
+                    "nome" => $risultato['nome'],
+                    "cognome" => $risultato['cognome'],
+                    "dataNascita" => $risultato['dataNascita'],
+                    "sesso" => $risultato['sesso'],
+                    "residenza" => $risultato['residenza'],
+                    "username" => $risultato['username'],
+                    "mail" => $risultato['mail'],
+                    "password" => $risultato['password']
+                ];
+            };
+        }
 
         return $risultato;
     }
@@ -97,7 +121,10 @@
     function eliminaUtente($username, $mail){
         global $usersStore;
 
-        $utente = ottieniArrayUsernameMail($username, $mail);
+        $utente = [
+            "mail" => $mail,
+            "username" => $username
+        ];
 
         // Elimino l'utente dal database
         $risultato = $usersStore -> deleteBy($utente);
@@ -179,16 +206,5 @@
         $tabella .= "</table>";
 
         return $tabella;
-    }
-    
-    function ottieniArrayUsernameMail($username, $mail){
-        return [
-            [
-                // Condizione obbligatoria
-                "mail", "=", $mail
-            ], 
-            "AND", // Condizione opzionale
-            ["username", "=", $username]
-        ];
     }
 ?>
