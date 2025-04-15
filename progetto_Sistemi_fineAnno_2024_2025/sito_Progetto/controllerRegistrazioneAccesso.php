@@ -38,6 +38,12 @@
             }
         }
 
+        if($_POST['residenza'] == "Seleziona una localita"){
+
+            // Se non ho inserito la residenza, mostro un errore
+            $err .= "<br>Non hai inserito la residenza";
+        }
+
         // La password inserita non combacia
         if($_POST['password'] != $_POST['confermaPassword']){
 
