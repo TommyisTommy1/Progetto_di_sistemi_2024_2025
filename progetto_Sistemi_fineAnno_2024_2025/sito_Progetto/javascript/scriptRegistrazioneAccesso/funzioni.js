@@ -48,7 +48,7 @@ function ottieniAccesso(){
 function inserisciNome(){
     let nome = "<br>";
     nome += "<label for='nome'>Inserisci il nome: </label>";
-    nome += "<input type='text' name='nome' id='nome' class='nome' placeholder='Mario' required />";
+    nome += "<input type='text' name='nome' id='nome' class='nome' placeholder='Mario' required title='Inserisci la nome' />";
     return nome;
 }
 
@@ -56,7 +56,7 @@ function inserisciNome(){
 function inserisciCognome(){
     let cognome = "<br>";
     cognome += "<label for='cognome'>Inserisci il cognome: </label>";
-    cognome += "<input type='text' name='cognome' id='cognome' class='cognome' placeholder='Rossi' required />";
+    cognome += "<input type='text' name='cognome' id='cognome' class='cognome' placeholder='Rossi' required title='Inserisci tuo cognome' />";
     return cognome;
 }
 
@@ -64,7 +64,7 @@ function inserisciCognome(){
 function inserisciDataNascita(){
     let dataNascita = "<br>";
     dataNascita += "<label for='dataNascita'>Inserisci la data di nascita: </label>";
-    dataNascita += "<input type='date' name='dataNascita' id='dataNascita' class='dataNascita' placeholder='11/11/1111' required />";
+    dataNascita += "<input type='date' name='dataNascita' id='dataNascita' class='dataNascita' placeholder='11/11/1111' required title='Inserisci la tua data di nascita' />";
     return dataNascita;
 }
 
@@ -86,7 +86,7 @@ function inserisciSesso(){
 // Funzione per ottenere il sesso in base al tipo
 function ottieniSesso(tipo){
     let sesso = "<br>";
-    sesso += "<input type='radio' name='sesso' id=" + tipo + " class='sesso' value=" + tipo + " required />";
+    sesso += "<input type='radio' name='sesso' id=" + tipo + " class='sesso' value=" + tipo + " required title='Inserisci il tuo sesso' />";
     sesso += "<label for=" + tipo + ">" + tipo + "</label>";
     return sesso;
 }
@@ -95,7 +95,7 @@ function ottieniSesso(tipo){
 function inserisciResidenza(){
     let localita = "<br>";
     localita += "<label for='residenza'>Inserisci la localita': </label>";
-    localita += "<select name='residenza' id='residenza' required>";
+    localita += "<select name='residenza' id='residenza' required  title='Inserisci la tua residenza tra quelle proposte'>";
     localita += "<option value='SelezionaLocalita'>Seleziona una localita</option>";
 
     for(let i = 0; i < citta.length; i++){
@@ -116,7 +116,7 @@ function ottieniLocalita(citta){
 function inserisciUsername(){
     let username = "<br>";
     username += "<label for='username'>Inserisci lo username: </label>";
-    username += "<input type='text' name='username' id='username' class='username' autocomplete='username' placeholder='Username' />";
+    username += "<input type='text' name='username' id='username' class='username' autocomplete='username' placeholder='Username' autocomplete='on'  title='Inserisci lo username se vuoi' />";
     return username;
 }
 
@@ -124,7 +124,11 @@ function inserisciUsername(){
 function inserisciMail(){
     let mail = "<br>";
     mail += "<label for='mail'>Inserisci la mail: </label>";
-    mail += "<input type='mail' name='mail' id='mail' class='mail' placeholder='mail.prova@gmail.com' required pattern='^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$' />";
+
+    // Nel pattern la ^ indica l'inizio come deve iniziare, la $ indica la fine come deve finire, e il . indica qualsiasi carattere
+    // Le \\ servono per far interpretare una sola \ e serve come escape per indicare cosa ci va dopo (Il punto)
+    // Il {2,} indica che ci devono essere almeno 2 caratteri dopo il punto
+    mail += "<input type='email' name='mail' id='mail' class='mail' placeholder='mail.prova@gmail.com' required pattern='[a-z0-9._%+\\-]+@[a-z0-9.\\-]+\\.[a-z]{2,}$' autocomplete='on' title='Inserisci la mail' />";
     return mail;
 }
 
@@ -132,7 +136,9 @@ function inserisciMail(){
 function inserisciPassword(){
     let password = "<br>";
     password += "<label for='password'>Inserisci la password: </label>";
-    password += "<input type='password' name='password' id='password' class='password' placeholder='Password123' required minlength='8' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$' />";
+
+    // Nel pattern la ^ indica l'inizio come deve iniziare, la $ indica la fine come deve finire, e il . indica qualsiasi carattere
+    password += "<input type='password' name='password' id='password' class='password' placeholder='Password123' required minlength='8' pattern='^[a-zA-Z\\d]{8,}$' autocomplete='on' title='Inserisci la password' />";
     return password;
 }
 
@@ -140,7 +146,9 @@ function inserisciPassword(){
 function inserisciConfermaPassword(){
     let confermaPassword = "<br>";
     confermaPassword += "<label for='confermaPassword'>Conferma la password: </label>";
-    confermaPassword += "<input type='password' name='confermaPassword' id='confermaPassword' class='confermaPassword' placeholder='Password123' minlength='8' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$' required />";
+
+    // Nel pattern la ^ indica l'inizio come deve iniziare, la $ indica la fine come deve finire, e il . indica qualsiasi carattere
+    confermaPassword += "<input type='password' name='confermaPassword' id='confermaPassword' class='confermaPassword' placeholder='Password123' minlength='8' pattern='^[a-zA-Z\\d]{8,}$' required autocomplete='on' title='Inserisci la password per la conferma' />";
     return confermaPassword;
 }
 
