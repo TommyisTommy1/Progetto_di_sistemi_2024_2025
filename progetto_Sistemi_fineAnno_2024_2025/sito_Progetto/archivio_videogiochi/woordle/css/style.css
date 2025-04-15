@@ -53,3 +53,30 @@ h1{
     text-decoration: none;
     cursor: pointer;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Stile per la colonna con le immagini delle bandiere */
+td img {
+    width: 20px;
+    height: auto;
+}
+
+/* Stile per i colori alternati delle righe */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
