@@ -27,27 +27,8 @@
 
     if(isset($_POST['bottoneEliminaAccount'])){
         // Se l'utente ha premuto il bottone per eliminare l'account
-
-        $criterioEliminazione = [
-            ["nome", "=", $datiUtente['nome']],
-            ["cognome", "=", $datiUtente['cognome']],
-            ["dataNascita", "=", $datiUtente['dataNascita']],
-            ["sesso", "=", $datiUtente['sesso']],
-            ["residenza", "=", $datiUtente['residenza']],
-            ["mail", "=", $datiUtente['mail']],
-            ["password", "=", $datiUtente['password']]
-        ];
-        
-        if(isset($datiUtente['immagineProfilo'])){
-            $criterioEliminazione[] = ["immagineProfilo", "=", $datiUtente['immagineProfilo']];
-        }
-
-        if(isset($datiUtente['username'])){
-            $criterioEliminazione[] = ["username", "=", $datiUtente['username']];
-        }
-
         // Elimino l'account dell'utente e chiudo la sessione
-        eliminaUtente($criterioEliminazione);
+        eliminaUtente($_SESSION['username'], $_SESSION['mail']);
     }
     
     // Se l'utente ha premuto il bottone per chiudere la sessione o per eliminare l'account

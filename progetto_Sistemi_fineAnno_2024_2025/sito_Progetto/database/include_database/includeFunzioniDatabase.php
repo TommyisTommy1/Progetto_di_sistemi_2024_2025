@@ -2,9 +2,14 @@
     /* START ------ CODICE DA COPIARE NELLE PAGINE DOVE UTILIZZO IL DATABASE ----- */
     // Libreria https://sleekdb.github.io/
     require_once __DIR__ . "/../sleekdb/Store.php";
-    $configuration = ["timeout" => false]; // Senza questa riga segnala un errore
+
+    // Senza questa riga segnala un errore
+    // Deprecated
+    $configuration = ["timeout" => false];
+    
     // Cartella in cui vengono salvati i dati, può essere modificata
     $databaseDirectory = __DIR__ . "/../myDatabase"; 
+    
     /* END ------ CODICE DA COPIARE NELLE PAGINE DOVE UTILIZZO IL DATABASE ------- */
     
     //creo l'oggetto db che si riferisce ai dati degli utenti
@@ -18,7 +23,7 @@
         global $usersStore;
 
         // Controllo se la mail e' già stata utilizzata
-        if($usersStore -> findOneBy(["mail", "=", "$mail"]) == true){
+        if($usersStore -> findOneBy(["mail", "=", $mail]) == true){
             
             // La mail è già stata utilizzata
             // L'utente non può essere creato perche' esiste gia'
@@ -30,15 +35,15 @@
 
         // Salvataggio dei dati per il criterio
         $utente = [
-            ["immagineProfilo", "=", ""],
-            ["nome", "=", "$nome"],
-            ["cognome", "=", "$cognome"],
-            ["dataNascita", "=", "$dataNascita"],
-            ["sesso", "=", "$sesso"],
-            ["residenza", "=", "$residenza"],
-            ["username", "=", "$username"],
-            ["mail", "=", "$mail"],
-            ["password", "=", "$password"]
+            "immagineProfilo" => "",
+            "nome" => $nome,
+            "cognome" => $cognome,
+            "dataNascita" => $dataNascita,
+            "sesso" => $sesso,
+            "residenza" => $residenza,
+            "username" => $username,
+            "mail" => $mail,
+            "password" => $password
         ];
 
         // Inserisco il nuovo utente al database
@@ -57,15 +62,8 @@
         $password = creaHashPassword($password);
         
         // Creo un criterio per trovare nel database l'utente
-        $utente = [
-            ["mail", "=", $mail],
-            ["password", "=", $password]
-        ];
-        
-        // Se l'username è stato inserito, lo aggiungo al criterio
-        if(!empty($username)){
-            $utente[] = ["username", "=", $username];
-        }
+        $utente = ottieniArrayUsernameMail($username, $mail);
+        $utente[] = ["password", "=", $password];
         
         // Trovo l'utente (se c'e' torna un array, se non c'e' torna null)
         $risultato = $usersStore -> findOneBy($utente);
@@ -86,13 +84,8 @@
         global $usersStore;
         
         // Creo un criterio per trovare nel database l'utente        
-        $utente = ["mail", "=", $mail];
+        $utente = ottieniArrayUsernameMail($username, $mail);
 
-        if(!empty($username)){
-            $utente[] = "and";
-            $utente[] = ["username", "=", $username];
-        }
-        //findOneBy([["mail", "=", $mail],"and",["username", "=", $username]]);
         // Ottengo l'utente (se c'e' torna un array, se non c'e' torna null)
         $risultato = $usersStore -> findOneBy($utente);
 
@@ -101,11 +94,22 @@
 
     
     // Funzione per eliminare un utente dal database
-    function eliminaUtente($datiUtente){
+    function eliminaUtente($username, $mail){
         global $usersStore;
 
+        $utente = ottieniArrayUsernameMail($username, $mail);
+
         // Elimino l'utente dal database
-        $usersStore -> deleteBy($datiUtente);
+        $risultato = $usersStore -> deleteBy($utente);
+
+        if($risultato == false){
+            
+            // L'utente non è stato eliminato
+            print_r("Utente non eliminato");
+        }
+
+        // L'utente è stato eliminato
+        print_r("Utente eliminato");
     }
 
     // Funzione per ottenere i dati di tutti gli utenti
@@ -114,12 +118,12 @@
         global $usersStore;
         
         // Ottengo tutti gli utenti (se c'e' torna un array, se non c'e' torna null)
-        $risultato = $usersStore -> findAll();
+        $risultato = $usersStore -> findAll(["_id" => "asc"]);
 
         if($risultato == null){
             
             // Non ci sono utenti nel database
-            return $risultato;
+            return "<div>Nessun utente loggato</div>";
         }
 
         // Restituisco i dati degli utenti
@@ -175,5 +179,16 @@
         $tabella .= "</table>";
 
         return $tabella;
+    }
+    
+    function ottieniArrayUsernameMail($username, $mail){
+        return [
+            [
+                // Condizione obbligatoria
+                "mail", "=", $mail
+            ], 
+            "AND", // Condizione opzionale
+            ["username", "=", $username]
+        ];
     }
 ?>

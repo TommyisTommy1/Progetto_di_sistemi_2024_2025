@@ -124,7 +124,7 @@ function inserisciUsername(){
 function inserisciMail(){
     let mail = "<br>";
     mail += "<label for='mail'>Inserisci la mail: </label>";
-    mail += "<input type='mail' name='mail' id='mail' class='mail' placeholder='mail.prova@gmail.com' required />";
+    mail += "<input type='mail' name='mail' id='mail' class='mail' placeholder='mail.prova@gmail.com' required pattern='^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$' />";
     return mail;
 }
 
@@ -132,7 +132,7 @@ function inserisciMail(){
 function inserisciPassword(){
     let password = "<br>";
     password += "<label for='password'>Inserisci la password: </label>";
-    password += "<input type='password' name='password' id='password' class='password' placeholder='Password123' required />";
+    password += "<input type='password' name='password' id='password' class='password' placeholder='Password123' required minlength='8' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$' />";
     return password;
 }
 
@@ -140,7 +140,7 @@ function inserisciPassword(){
 function inserisciConfermaPassword(){
     let confermaPassword = "<br>";
     confermaPassword += "<label for='confermaPassword'>Conferma la password: </label>";
-    confermaPassword += "<input type='password' name='confermaPassword' id='confermaPassword' class='confermaPassword' placeholder='Password123' required />";
+    confermaPassword += "<input type='password' name='confermaPassword' id='confermaPassword' class='confermaPassword' placeholder='Password123' minlength='8' pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$' required />";
     return confermaPassword;
 }
 
