@@ -120,6 +120,7 @@
     
         // Se non ci sono stati errori, vado alla pagina del profilo
         header("Location: pagina_profilo.php");
+        exit();
     }
 
 ?>

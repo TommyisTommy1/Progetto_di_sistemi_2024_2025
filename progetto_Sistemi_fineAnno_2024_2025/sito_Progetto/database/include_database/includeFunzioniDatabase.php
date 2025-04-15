@@ -63,9 +63,11 @@
         
         // Creo un criterio per trovare nel database l'utente
         $utente = [
-            "password" => $password, 
-            "mail" => $mail,
-            "username" => $username
+            ["password", "=", $password], 
+            "AND",
+            ["mail", "=", $mail],
+            "AND",
+            ["username", "=", $username]
         ];
         
         // Trovo l'utente (se c'e' torna un array, se non c'e' torna null)
@@ -88,30 +90,13 @@
         
         // Creo un criterio per trovare nel database l'utente        
         $utente = [
-            "mail" => $mail,
-            "username" => $username
+            ["mail", "=", $mail],
+            "AND",
+            ["username", "=", $username]
         ];
 
         // Ottengo l'utente (se c'e' torna un array, se non c'e' torna null)
         $risultato = $usersStore -> findOneBy($utente);
-
-        if($risultato != null){
-
-            // Ritorno i dati dell'utente
-            $risultato = function ($risultato){
-                return [
-                    "immagineProfilo" => $risultato['immagineProfilo'],
-                    "nome" => $risultato['nome'],
-                    "cognome" => $risultato['cognome'],
-                    "dataNascita" => $risultato['dataNascita'],
-                    "sesso" => $risultato['sesso'],
-                    "residenza" => $risultato['residenza'],
-                    "username" => $risultato['username'],
-                    "mail" => $risultato['mail'],
-                    "password" => $risultato['password']
-                ];
-            };
-        }
 
         return $risultato;
     }
@@ -122,8 +107,9 @@
         global $usersStore;
 
         $utente = [
-            "mail" => $mail,
-            "username" => $username
+            ["mail", "=", $mail],
+            "AND",
+            ["username", "=", $username]
         ];
 
         // Elimino l'utente dal database
