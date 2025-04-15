@@ -86,12 +86,13 @@
         global $usersStore;
         
         // Creo un criterio per trovare nel database l'utente        
-        $utente[] = ["mail", "=", $mail];
+        $utente = ["mail", "=", $mail];
 
         if(!empty($username)){
+            $utente[] = "and";
             $utente[] = ["username", "=", $username];
         }
-        
+        //findOneBy([["mail", "=", $mail],"and",["username", "=", $username]]);
         // Ottengo l'utente (se c'e' torna un array, se non c'e' torna null)
         $risultato = $usersStore -> findOneBy($utente);
 
