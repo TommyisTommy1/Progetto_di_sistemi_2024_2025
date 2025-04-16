@@ -168,6 +168,18 @@
         $tabella .= "<th colspan='9'>Tabella Degli Utenti Presenti Nel Database</th>";
         $tabella .= "</tr>";
 
+        $tabella .= "<tr>";
+        $tabella .= "<th>Immagine Profilo</th>";
+        $tabella .= "<th>Nome</th>";
+        $tabella .= "<th>Cognome</th>";
+        $tabella .= "<th>Data di Nascita</th>";
+        $tabella .= "<th>Sesso</th>";
+        $tabella .= "<th>Residenza</th>";
+        $tabella .= "<th>Username</th>";
+        $tabella .= "<th>Mail</th>";
+        $tabella .= "<th>Password</th>";
+        $tabella .= "</tr>";
+
         // Aggiungo i dati alla tabella
         for($i = 0; $i < count($utenti); $i++){
 

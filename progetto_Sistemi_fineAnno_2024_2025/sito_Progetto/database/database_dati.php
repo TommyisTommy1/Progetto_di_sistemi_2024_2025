@@ -38,11 +38,7 @@
     <div class="tabellaDatiDatabase">
 
         <!-- Tabella che mostra i dati salvati nel database -->
-        <span class="tabellaDatabase">
-
-            <!-- Tabella che mostra i dati salvati nel database -->
-            <?php echo $datiUtenti; ?>
-        </span>
+        <?php echo $datiUtenti; ?>
     </div>
 
     <!-- Divisore per indicare la parte finale della pagina web -->
