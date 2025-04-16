@@ -13,7 +13,7 @@
     /* END ------ CODICE DA COPIARE NELLE PAGINE DOVE UTILIZZO IL DATABASE ------- */
     
     //creo l'oggetto db che si riferisce ai dati degli utenti
-    $usersStore = new \SleekDB\Store("utente", $databaseDirectory, $configuration);
+    $usersStore = new \SleekDB\Store("databaseUtenti", $databaseDirectory, $configuration);
     
     require_once "includeFunzioniHashing.php";
 
@@ -34,17 +34,7 @@
         $password = creaHashPassword($password);
 
         // Salvataggio dei dati per il criterio
-        $utente = [
-            "immagineProfilo" => "",
-            "nome" => $nome,
-            "cognome" => $cognome,
-            "dataNascita" => $dataNascita,
-            "sesso" => $sesso,
-            "residenza" => $residenza,
-            "username" => $username,
-            "mail" => $mail,
-            "password" => $password
-        ];
+        $utente = ottieniArrayDati($nome, $cognome, $dataNascita, $sesso, $residenza, $username, $mail, $password);
 
         // Inserisco il nuovo utente al database
         $utente = $usersStore -> insert($utente);
@@ -58,28 +48,34 @@
 
         global $usersStore;
 
-        // Faccio l'hash della password
-        $password = creaHashPassword($password);
         
         // Creo un criterio per trovare nel database l'utente
         $utente = [
-            ["password", "=", $password], 
+            ["username", "=", $username],
             "AND",
-            ["mail", "=", $mail],
-            "AND",
-            ["username", "=", $username]
+            ["mail", "=", $mail]
         ];
         
         // Trovo l'utente (se c'e' torna un array, se non c'e' torna null)
-        $risultato = $usersStore -> findOneBy($utente);
-
+        $risultato = $usersStore -> findBy($utente, ["_id" => "asc"], 1);
+        
         if($risultato == null){
             
             // L'utente non è stato trovato
             return false;
         }
+        
+        // Assegno ad utente l'utente trovato
+        $utente = $risultato[0];
 
-        // L'utente è stato trovato
+        // Controllo se la password e' la stessa
+        if(verificaHashPassword($password, $utente["password"]) == false){
+
+            // Password non corretta
+            return false;
+        }
+
+        // L'utente è stato trovato, la password era corretta
         return true;
     }
 
@@ -90,13 +86,19 @@
         
         // Creo un criterio per trovare nel database l'utente        
         $utente = [
-            ["mail", "=", $mail],
+            ["username", "=", $username],
             "AND",
-            ["username", "=", $username]
+            ["mail", "=", $mail]
         ];
+        
+        // Trovo l'utente (se c'e' torna un array, se non c'e' torna null)
+        $risultato = $usersStore -> findBy($utente, ["_id" => "asc"], 1);
 
-        // Ottengo l'utente (se c'e' torna un array, se non c'e' torna null)
-        $risultato = $usersStore -> findOneBy($utente);
+        if($risultato != null){
+            
+            // L'utente è stato trovato
+            return $risultato[0];
+        }
 
         return $risultato;
     }
@@ -164,7 +166,7 @@
         
         // Aggiungo l'intestazione della tabella
         $tabella .= "<tr>";
-        $tabella .= "<th coolspan='9'>Tabella Degli Utenti Presenti Nel Database</th>";
+        $tabella .= "<th colspan='9'>Tabella Degli Utenti Presenti Nel Database</th>";
         $tabella .= "</tr>";
 
         // Aggiungo i dati alla tabella
@@ -180,7 +182,7 @@
             $tabella .= "<td>" . $utenti[$i]["dataNascita"] . "</td>";
             $tabella .= "<td>" . $utenti[$i]["sesso"] . "</td>";
             $tabella .= "<td>" . $utenti[$i]["residenza"] . "</td>";
-            $tabella .= "<td>" . ($utenti[$i]["username"])? $utenti[$i]["username"] : "" . "</td>";
+            $tabella .= "<td>" . (($utenti[$i]["username"])? $utenti[$i]["username"] : "") . "</td>";
             $tabella .= "<td>" . $utenti[$i]["mail"] . "</td>";
             $tabella .= "<td>" . $utenti[$i]["password"] . "</td>";
             
@@ -192,5 +194,19 @@
         $tabella .= "</table>";
 
         return $tabella;
+    }
+
+    function ottieniArrayDati($nome, $cognome, $dataNascita, $sesso, $residenza, $username, $mail, $password){
+        return [
+            "immagineProfilo" => "",
+            "nome" => $nome,
+            "cognome" => $cognome,
+            "dataNascita" => $dataNascita,
+            "sesso" => $sesso,
+            "residenza" => $residenza,
+            "username" => $username,
+            "mail" => $mail,
+            "password" => $password
+        ];
     }
 ?>

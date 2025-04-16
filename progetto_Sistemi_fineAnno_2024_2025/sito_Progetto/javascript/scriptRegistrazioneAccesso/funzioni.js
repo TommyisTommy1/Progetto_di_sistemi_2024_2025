@@ -96,7 +96,7 @@ function inserisciResidenza(){
     let localita = "<br>";
     localita += "<label for='residenza'>Inserisci la localita': </label>";
     localita += "<select name='residenza' id='residenza' required  title='Inserisci la tua residenza tra quelle proposte'>";
-    localita += "<option value='SelezionaLocalita'>Seleziona una localita</option>";
+    localita += "<option value='Seleziona una localita'>Seleziona una localita</option>";
 
     for(let i = 0; i < citta.length; i++){
         localita += ottieniLocalita(citta[i]);

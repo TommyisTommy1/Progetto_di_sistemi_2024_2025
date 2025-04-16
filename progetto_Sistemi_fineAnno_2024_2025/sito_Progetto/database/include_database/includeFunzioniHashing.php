@@ -19,12 +19,12 @@
         return $hash;
     }
 
-    // Verifica se la password inserita corrisponde all'hash salvato nel database
+    // Verifica se la password inserita e' corretta
     function verificaHashPassword($password, $hash){
-        
-        // Ricostruisco il valore del pepe
-        $pepe = creaHashPassword($password);
-
+    
+        // Aggiungiamo il pepe alla password
+        $pepe = hash_hmac("sha256", $password, ottieniPepeHash());
+    
         // Verifica sicura con password_verify
         // che confronta l'hash della password con l'hash salvato
         // Restituisce true se la password e' corretta, false altrimenti

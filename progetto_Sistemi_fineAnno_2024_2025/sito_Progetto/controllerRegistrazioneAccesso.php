@@ -41,7 +41,7 @@
         if($_POST['residenza'] == "Seleziona una localita"){
 
             // Se non ho inserito la residenza, mostro un errore
-            $err .= "<br>Non hai inserito la residenza";
+            $err .= "<br>Non hai inserito una residenza accettabile";
         }
 
         // La password inserita non combacia
