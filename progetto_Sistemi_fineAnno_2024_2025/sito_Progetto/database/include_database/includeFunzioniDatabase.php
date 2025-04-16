@@ -106,17 +106,21 @@
     
     // Funzione per eliminare un utente dal database
     function eliminaUtente($username, $mail){
+
         global $usersStore;
 
+        // Creo un criterio per trovare nel database l'utente
         $utente = [
             ["mail", "=", $mail],
             "AND",
             ["username", "=", $username]
         ];
 
-        // Elimino l'utente dal database
-        $risultato = $usersStore -> deleteBy($utente);
+        // Elimino l'utente dal database ($risultato serve per il debug e gli assegni questo: $risulato = $usersStore -> deleteBy($utente);)
+        $usersStore -> deleteBy($utente);
 
+        /*
+        DEBUG------------------------
         if($risultato == false){
             
             // L'utente non è stato eliminato
@@ -125,6 +129,7 @@
 
         // L'utente è stato eliminato
         print_r("Utente eliminato");
+        */
     }
 
     // Funzione per ottenere i dati di tutti gli utenti
@@ -134,12 +139,6 @@
         
         // Ottengo tutti gli utenti (se c'e' torna un array, se non c'e' torna null)
         $risultato = $usersStore -> findAll(["_id" => "asc"]);
-
-        if($risultato == null){
-            
-            // Non ci sono utenti nel database
-            return "<div>Nessun utente loggato</div>";
-        }
 
         // Restituisco i dati degli utenti
         return $risultato;
