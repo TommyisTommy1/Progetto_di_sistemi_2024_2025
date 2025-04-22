@@ -75,7 +75,9 @@ function aggiornaContenutoSlot(lista) {
     for (let i = 0; i < slotMachine.numeroRuote; i++) {
 
         // Sposta le emoji verso il basso
-        
+        for(let ii = slotMachine.numeroRuote * slotMachine.emojiSlotVisibili; ii > slotMachine.numeroRuote; ii -= slotMachine.numeroRuote){
+            lista[ii] = lista[ii -= slotMachine.numeroRuote];
+        }
 
         // Nuova emoji random nella prima riga (in alto)
         lista[i].innerHTML = "&#" + slotMachine.tipi[Math.floor(Math.random() * slotMachine.tipi.length)] + ";";
