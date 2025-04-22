@@ -30,72 +30,54 @@
         </div>
     </div> 
 
-    <!-- Divisore per indicare il gioco -->
-    <div class="gioco">
-        <table>
-            <thead>
-                <tr>
-                    <th>Driver</th>
-                    <th>Flag</th>
-                    <th>Team</th>
-                    <th>Car Num</th>
-                    <th>Age</th>
-                    <th>First Year</th>
-                    <th>Race Wins</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <!-- Puoi aggiungere altre righe se necessario -->
-            </tbody>
-        </table>
-            <input type="text" class="inputTesto" id="testo" placeholder="Inserisci il nome o il cognome del pilota">
-            <button type="button" class="inviaDati" id="bottoneInvio">Invia i dati</button>
+    <div class="container">
+        <h2>Seleziona la stagione</h2>
+        <select id="stagioneSelect">
+          <option value="2018">Stagione 2018</option>
+          <option value="2022">Stagione 2022</option>
+          <option value="2024">Stagione 2024</option>
+        </select>
     </div>
+
+    <div class="insDati">
+        <button onclick="avviaGioco()">Avvia Gioco</button>
+    </div>
+    
+
+    <!-- Divisore per indicare il gioco -->
+    <table id="tabellaGioco" style="margin-top: 2rem;">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Numero</th>
+            <th>Team</th>
+            <th>Vittorie</th>
+            <th>Mondiali</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      
+        </div>
+        <div class="insDati">
+            <input type="text" id="nomePilota" placeholder="Scrivi un nome pilota "oninput="mostraSuggerimenti()">
+            <div id="suggerimenti"></div>
+          </div>
+
+    <div class="piloti-lista" id="pilotiLista">
+      <!-- I piloti verranno mostrati qui -->
+    </div>
+  </div>
+
+    <div>
+        <button onclick="controllaRisposta()">Controlla</button>
+    </div>
+
+    
+    
+      <div id="esitoGioco" style="margin-top: 1rem; font-weight: bold;"></div>
+    
+      <div class="piloti-lista" id="pilotiLista"></div>
 
     <!-- Divisore per indicare la parte finale della pagina web -->
     <div class="parteFinale">
