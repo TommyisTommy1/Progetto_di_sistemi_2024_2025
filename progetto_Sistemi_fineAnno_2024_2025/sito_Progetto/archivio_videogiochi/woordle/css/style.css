@@ -22,7 +22,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%; /* Questo dipende dal tuo layout */
+  height: 100%;
 }
 
 body {

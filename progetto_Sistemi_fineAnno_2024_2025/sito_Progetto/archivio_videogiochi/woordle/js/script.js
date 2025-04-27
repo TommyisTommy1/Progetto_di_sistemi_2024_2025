@@ -129,6 +129,8 @@ function avviaGioco() {
 
   pilotaDaIndovinare = piloti[Math.floor(Math.random() * piloti.length)];
   console.log("Pilota da indovinare:", pilotaDaIndovinare.nome);
+
+  document.getElementById("controllaBtn").disabled = false;
 }
 
 // -----------------------
