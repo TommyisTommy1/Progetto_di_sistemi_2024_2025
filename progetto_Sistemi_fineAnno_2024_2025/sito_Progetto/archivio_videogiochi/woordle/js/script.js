@@ -59,7 +59,7 @@ const datiPiloti = {
   { nome: "Lando Norris",      numero: 4,  team: "McLaren",             nazionalità: "Regno Unito",  vittorie: 0,   mondiali: 0, teamPrecedenti: [] },
   { nome: "Oscar Piastri",     numero: 81, team: "McLaren",             nazionalità: "Australia",     vittorie: 0,   mondiali: 0, teamPrecedenti: [] },
   { nome: "Fernando Alonso",   numero: 14, team: "Aston Martin",        nazionalità: "Spagna",        vittorie: 32,  mondiali: 2, teamPrecedenti: ["Renault","Ferrari","McLaren","Alpine"] },
-  { nome: "Lance Stroll",      numero: 18, team: "Aston Martin",        nazionalità: "Canada",        vittorie: 1,   mondiali: 0, teamPrecedenti: [] },
+  { nome: "Lance Stroll",      numero: 18, team: "Aston Martin",        nazionalità: "Canada",        vittorie: 0,   mondiali: 0, teamPrecedenti: [] },
   { nome: "Pierre Gasly",      numero: 10, team: "Alpine",              nazionalità: "Francia",       vittorie: 1,   mondiali: 0, teamPrecedenti: ["Toro Rosso"] },
   { nome: "Esteban Ocon",      numero: 31, team: "Alpine",              nazionalità: "Francia",       vittorie: 1,   mondiali: 0, teamPrecedenti: [] },
   { nome: "Kevin Magnussen",   numero: 20, team: "Haas",                nazionalità: "Danimarca",     vittorie: 0,   mondiali: 0, teamPrecedenti: [] },
@@ -199,8 +199,8 @@ function controllaRisposta() {
   } else {
     tentativi--;
     if (tentativi === 0) {
-      document.getElementById("esitoGioco").textContent =
-        `❌ Tentativi finiti! Era ${pilotaDaIndovinare.nome}.`;
+      document.getElementById("esitoGioco").innerHTML =
+        `<span class="sconfitta">❌ Tentativi finiti! Era ${pilotaDaIndovinare.nome}.</span>`;
       fineGioco();
     }
   }
