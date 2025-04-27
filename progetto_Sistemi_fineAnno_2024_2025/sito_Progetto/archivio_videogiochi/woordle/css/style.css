@@ -293,3 +293,13 @@ button:hover {
   display: block;
   margin-top: 20px;
 }
+
+.sconfitta {
+  color: red;
+  font-weight: bold;
+  font-size: 1.2em;
+  font-family: 'FormulaOne', sans-serif;
+  text-align: center;
+  display: block;
+  margin-top: 20px;
+}
