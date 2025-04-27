@@ -24,8 +24,17 @@
         <div id="modal" class="modal">
             <div class="modal-content">
                 <span id="closeModalBtn" class="close">&times;</span>
-                <h2>tutorial title</h2>
-                <p>tutorial text.</p>
+                <h2>Tutorial - Come funziona il gioco</h2>
+                <p>1-Seleziona la stagione e clicca su "Avvia Gioco".<br>
+                  2-Indovina un pilota di Formula 1 in 5 tentativi.<br>
+                  3-Dopo ogni tentativo, riceverai un indizio che ti aiuterà a restringere le opzioni.<br>
+                  4-Clicca su "Controlla" per verificare se hai indovinato.<br>
+                  5-Il gioco termina quando indovini o quando finisci i tentativi.</p>
+                  <h2>Tutorial - Cosa indicano i colori?</h2>
+                  <p>Verde: Hai indovinato il pilota o un dato (numero, team, vittorie, mondiali) corretto.<br>
+                    Arancione: Il valore inserito è inferiore rispetto a quello corretto, oppure il pilota ha corso in passato per il team inserito.<br>
+                    Viola: Il valore inserito è superiore rispetto a quello corretto.<br>
+                    Rosso: Il dato è completamente sbagliato.</p>
             </div>
         </div>
     </div> 
@@ -45,20 +54,56 @@
     
 
     <!-- Divisore per indicare il gioco -->
-    <table id="tabellaGioco" style="margin-top: 2rem;">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Numero</th>
-            <th>Team</th>
-            <th>Vittorie</th>
-            <th>Mondiali</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-      
-        </div>
+    <table id="tabellaGioco">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Numero</th>
+          <th>Team</th>
+          <th>Vittorie</th>
+          <th>Mondiali</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 5 righe vuote per i tentativi -->
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    
         <div class="insDati">
             <input type="text" id="nomePilota" placeholder="Scrivi un nome pilota "oninput="mostraSuggerimenti()">
             <div id="suggerimenti"></div>
@@ -69,13 +114,12 @@
     </div>
   </div>
 
-    <div>
-        <button onclick="controllaRisposta()">Controlla</button>
+    <div id="contenitorePulsante">
+      <button id="controllaBtn">Controlla</button>
     </div>
 
     
-    
-      <div id="esitoGioco" style="margin-top: 1rem; font-weight: bold;"></div>
+      <div id="esitoGioco"></div>
     
       <div class="piloti-lista" id="pilotiLista"></div>
 
