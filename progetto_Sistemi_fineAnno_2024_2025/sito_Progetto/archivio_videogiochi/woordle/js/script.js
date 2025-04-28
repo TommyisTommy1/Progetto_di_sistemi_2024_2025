@@ -131,6 +131,8 @@ function avviaGioco() {
   console.log("Pilota da indovinare:", pilotaDaIndovinare.nome);
 
   document.getElementById("controllaBtn").disabled = false;
+  document.getElementById("nomePilota").disabled = false;
+  document.getElementById("esitoGioco").innerHTML = "";
 }
 
 // -----------------------
@@ -155,18 +157,52 @@ function mostraSuggerimenti() {
     return;
   }
 
-  div.innerHTML = "<ul>" + filtrati.map(p =>
-    `<li onclick="selezionaSuggerimento('${p.nome}')">${p.nome}</li>`
+  div.innerHTML = "<ul>" + filtrati.map((p, index) =>
+    `<li tabindex="0" onclick="selezionaSuggerimento('${p.nome}', this)">${p.nome}</li>`
   ).join("") + "</ul>";
+
+  const items = div.querySelectorAll("li");
+
+  //evento keydown per le frecce direzionali
+  document.getElementById("nomePilota").addEventListener('keydown', function(e) {
+    let currentIndex = Array.from(items).findIndex(item => item === document.activeElement);
+
+    if (e.key === "ArrowDown") {
+      // Se c'è un elemento successivo, spostiamo il focus su di esso
+      if (currentIndex < items.length - 1) {
+        items[currentIndex + 1].focus();
+      } else {
+        // Se è l'ultimo elemento, ritorniamo al primo
+        items[0].focus();
+      }
+      e.preventDefault();  // Impedisce il comportamento predefinito
+    } else if (e.key === "ArrowUp") {
+      // Se c'è un elemento precedente, spostiamo il focus su di esso
+      if (currentIndex > 0) {
+        items[currentIndex - 1].focus();
+      } else {
+        // Se è il primo elemento, ritorniamo all'ultimo
+        items[items.length - 1].focus();
+      }
+      e.preventDefault();  // Impedisce il comportamento predefinito
+    } else if (e.key === "Enter") {
+      // Se si preme Enter, selezioniamo il suggerimento
+      if (currentIndex !== -1) {
+        selezionaSuggerimento(items[currentIndex].textContent, items[currentIndex]);
+        e.preventDefault();  // Impedisce il comportamento predefinito (inviare il form)
+      }
+    }
+  });
 }
 
 // -----------------------
 // Seleziona suggerimento
 // -----------------------
-function selezionaSuggerimento(nome) {
+function selezionaSuggerimento(nome, element) {
   const inp = document.getElementById("nomePilota");
   inp.value = nome;
   document.getElementById("suggerimenti").innerHTML = "";
+  inp.focus();  // Riporta il focus sull'input di testo
 }
 
 // -----------------------
