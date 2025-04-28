@@ -72,7 +72,7 @@ function rimuoviAnimazione(lista, colonna) {
 // 🔄 Cambia le emoji di tutte le colonne, facendo "scendere" le emoji
 function aggiornaContenutoSlot(lista) {
 
-    for (let i = 0; i < slotMachine.numeroRuote; i++) {
+    for (let i = 0; i < slotMachine.numeroRuote * slotMachine.emojiSlotVisibili; i++) {
 
         // Sposta le emoji verso il basso
         for(let ii = slotMachine.numeroRuote * slotMachine.emojiSlotVisibili; ii > slotMachine.numeroRuote; ii -= slotMachine.numeroRuote){
