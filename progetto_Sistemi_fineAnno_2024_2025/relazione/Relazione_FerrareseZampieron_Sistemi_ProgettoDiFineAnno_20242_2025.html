@@ -192,36 +192,254 @@
         <h2>3. Fasi di sviluppo</h2>
         <h3 id="progettazioneArchitettura">3.1 Progettazione dell'architettura</h3>
         <p>
-
+            Le tecnologie usate per la realizzazione del progetto sono state accennate nella sezione dei requisiti (1.2 Requisiti).
+            <br>
+            Per il front-end, ovvero per la parte visibile del sito web, sono stati utilizzati HTML e CSS 
+            per la struttura e la grafica ed anche JavaScript per la parte dinamica e per i minigiochi.
+            <br>
+            Per il back-end, ovvero per la parte non visibile del sito web, sono stati utilizzati PHP 
+            per la gestione dei dati degli utenti e SleekDB come database NoSQL per la memorizzazione dei dati.
+            <br>
+            La parte di front-end è visibile all'utente e di solito comprende tutto ciò che l'utente 
+            può vedere e con cui può interagire.
+            <br>
+            La parte di back-end è invisibile all'utente e comprende tutto ciò che avviene dietro le quinte, 
+            come la gestione dei dati e la logica del sito.
+            <br>
+            In questo progetto il back-end è stato usato principalmente per gestire i dati dei diversi utenti nel database NoSQL.
         </p>
 
         <h3 id="implementazioneFunzionalita">3.2 Implementazione delle funzionalità</h3>
+        <h4 id="passaggioParametri">3.2.1 Passaggio parametri</h4>
         <p>
-
+            Usando le tecnologie descritte nella sezione 1.3 Tecnologie utilizzate,
+            sono state implementate le funzionalità del sito web.
+            <br>
+            Usando il back-end si è potuto gestire il passaggio dei parametri tra le varie schede del sito web,
+            la gestione delle sessioni, le funzioni PHP per la gestione dei dati e le chiamate asincrone.
+            <br>
+            Più specificatamente si sono usati i vari modificatori di PHP come GET e POST per il passaggio 
+            dei parametri tra schede.
+            <br>
+            Un esempio di passaggio dei parametri è visibile nel file di registrazione/login al sito web,
+            dove si usano i metodi GET per mostrare errori quando si inseriscono dati errati e metodi POST 
+            per passare i dati di registrazione/login ad una pagina di controllo la quale richiederà al database
+            di controllare se i dati inseriti sono corretti o meno.
+        </p>
+        
+        <h4 id="sessioni">3.2.2 Sessioni</h4>
+        <p>
+            Le sessioni sono state implementate affinche si potessero salvare i dati poco importanti degli utenti loggati,
+            come ad esempio il nome utente, e una variabile che assicura l'accesso.
+            <br>
+            Ogni scheda del sito web ha una variabile di sessione che controlla se la sessione già esiste o se deve essere creata,
+            nella scheda del profilo dell'utente, invece, c'è anche un controllo per il login.
         </p>
 
+        <h4 id="funzioniPhp">3.2.3 Funzioni PHP</h4>
+        <p>
+            Le funzioni PHP implementate sono state usate per migliorare e generalizzare il codice del sito web.
+            <br>
+            Le funzioni implementate per la gestione della sessione sono 3:
+            <ul>
+                <li>
+                    inizializzaSessione()
+                    <p>
+                        Questa funzione viene usata per inizializzare la sessione e per controllare se è già stata creata.
+                    </p>
+                </li>
+                <li>
+                    distruggiSessione($paginaWeb)
+                    <p>
+                        Questa funzione viene usata per eliminare e distruggere i dati e la sessione.
+                    </p>
+                </li>
+                <li>
+                    distruggiSessioneConPassaParametriErrore($paginaWeb, $messaggioErrore)
+                    Questa funzione viene usata dalla pagina del profilo per cancellare l'account, eliminare 
+                    la sessione col passaggio di un messaggio finale.
+                </li>
+            </ul>
+            <br>
+            Le funzioni usate per le chiamate asincrone sono 2:
+            <ul>
+                <li>
+                    controllaEsistenza($nome, $videogiochi)
+                    <p>
+                        Questa funzione viene usata per controllare se il videogioco esiste o meno tra i giochi disponibili.
+                    </p>
+                </li>
+                <li>
+                    ottieniPercorso($nome)
+                    <p>
+                        Questa funzione viene usata per ottenere il percorso del videogioco da visualizzare.
+                    </p>
+                </li>
+            </ul>
+            <br>
+            La lista dei videogichi disponibili è stata creata in una funzione PHP ma si poteva salvarla anche in un file JSON.
+            <ul>
+                <li>
+                    ottieniListaVideogiochi()
+                    <p>
+                        Questa funzione viene usata per ottenere la lista dei videogiochi disponibili.
+                        <br>
+                        La lista è stata creata in un file PHP e non in un file JSON per velocizzare il caricamento della pagina.
+                    </p>
+                </li>
+            </ul>
+            <br>
+            Le funzioni usate dal database sono salvate nello stesso file php il quale esegue(quando richiesto), 
+            le funzioni per recuperare il database creato o per crearlo.
+            Tra le funzioni usate per il database ci sono:
+            <ul>
+                <li>
+                    creaNuovoUserDatabase($nome, $cognome, $dataNascita, $sesso, $residenza, $username, $mail, $password)
+                    <p>
+                        Questa funzione viene usata per creare un nuovo utente nel database se la mail inserita non esiste già.
+                    </p>
+                </li>
+                <li>
+                    recuperaAccessoDatabase($username, $mail, $password)
+                    <p>
+                        Questa funzione viene usata per recuperare l'accesso al database se i dati inseriti sono corretti.
+                        <br>
+                        Se i dati inseriti sono corretti viene modificata la variabile del nome utente in sessione e attivato l'accesso.
+                    </p>
+                </li>
+                <li>
+                    ottieniDatiUtente($username, $mail)
+                    <p>
+                        Questa funzione viene usata per ottenere i dati dell'utente loggato.
+                        <br>
+                        I dati ottenuti sono tutti quelli salvati nel file JSON dell'utente.
+                    </p>
+                </li>
+                <li>
+                    eliminaUtente($username, $mail)
+                    <p>
+                        Questa funzione viene usata per eliminare l'utente dal database e dal file JSON.
+                        <br>
+                        Questa funzione viene usata dalla pagina del profilo dell'utente per eliminare l'account.
+                    </p>
+                </li>
+                <li>
+                    ottieniDatiUtenti()
+                    <p>
+                        Questa funzione viene usata per ottenere i dati di tutti gli utenti registrati nel database.
+                        <br>
+                        I dati ottenuti sono tutti quelli salvati nel file JSON di ogni utente.
+                </li>
+                <li>
+                    creaTabellaUtenti()
+                    <p>
+                        Questa funzione viene usata per creare una tabella con i dati di tutti gli utenti registrati nel database.
+                    </p>
+                </li>
+                <li>
+                    ottieniArrayDati($nome, $cognome, $dataNascita, $sesso, $residenza, $username, $mail, $password)
+                    <p>
+                        Questa funzione viene usata per creare un array chiave-valore con i dati passati.
+                    </p>
+                </li>
+            </ul>
+            <br>
+            Per garantire la sicurezza dei dati degli utenti, sono state implementate misure di cybersecurity
+            come l'hash della password automatiche dal database.
+            Le funzioni usate per la cybersecurity sono:
+            <ul>
+                <li>
+                    ottieniPepeHash()
+                    <p>
+                        Questa funzione viene usata per ottenere il pepe hash per l'hash della password.
+                        <br>
+                        Il pepe hash è un codice casuale che viene usato per rendere più sicuro l'hash della password.
+                    </p>
+                </li>
+                <li>
+                    creaHashPassword($password)
+                    <p>
+                        Questa funzione viene usata per creare l'hash della password.
+                        <br>
+                        L'hash della password è un codice casuale che viene usato per rendere più sicura la password.
+                    </p>
+                </li>
+                <li>
+                    verificaHashPassword($password, $hash)
+                    <p>
+                        Questa funzione viene usata per verificare se l'hash della password è corretto.
+                    </p>
+                </li>
+            </ul>
+            <br>
+            Si era previsto di implementare anche una funzione per controllare se un utente è offline o inattivo.
+            Purtroppo, a causa del tempo limitato a disposizione, non è stato possibile comprendere e 
+            realizzare correttamente questa funzionalità.
+        </p>
+
+        <h4 id="chiamateAsincrone">3.2.4 Chiamate asincrone</h4>
+        <p>
+            Le chiamate asincrone sono state implementate per migliorare l'esperienza utente per trovare 
+            velocemente un videogioco dalla homepage, e per l'ordinamento dei diversi videogiochi secondo un criterio preciso.
+            <br>
+            La seconda idea non si è potuta realizzare a causa del poco tempo a disposizione ma la prima idea è stata implementata.
+            <br>
+            Infatti questa funzionalità permette di cercare un videogioco dalla homepage senza dover ricaricare la pagina,
+            ma semplicemente scrivendo il nome del videogioco nella barra di ricerca e cliccando sul tasto di ricerca. 
+            Il risultato ottenuto sarà un messaggio che serve per il redirect alla pagina col gioco.
+        </p>
+        
+        <h4 id="gestioneDatiDatabaseNoSQL">3.2.5 Gestione dati con database NoSQL</h4>
+        <p>
+            Per il progetto è stato utilizzato un database NoSQL, in particolare SleekDB, che memorizza i dati 
+            in formato JSON all'interno del file system.
+            <br>
+            A differenza dei database relazionali, non esiste uno schema rigido: i dati sono organizzati in 
+            collezioni, che possono essere pensate come insiemi di documenti.
+            <br>
+            I dati sono stati modellati in collezioni (simili a tabelle nei database relazionali), 
+            ciascuna contenente documenti JSON.
+            <br>
+            Ogni documento rappresenta un'entità (ad esempio un utente) ed è composto da coppie chiave-valore.
+            <br>
+            La scrittura dei dati si è fatta solo quando l'utente si registra al sito web, e si è usata la 
+            funzione predefinita di sleekdb insert la quale crea un file JSON con i dati di un array passato come parametro.
+            <br>
+            La lettura dei dati si è fatta quando l'utente si logga al sito web, accede al profilo per vedere i propri dati
+            o quando si visualizzano i diversi utenti presenti nel database, oppure per eliminare l'account.
+            Le funzioni usate per questo, sono predefinite di sleekdb, e sono:
+            <ul>
+                <li>
+                    findOneBy()
+                    <p>
+                        Questa funzione legge i diversi file fino a trovarne uno che abbia le stesse caratteristiche 
+                        dell'array passato come parametro.
+                    </p>
+                </li>
+                <li>
+                    findBy()
+                    <p>
+                        Questa funzione legge i diversi file fino a trovarne uno o più che abbia/abbiano le stesse caratteristiche 
+                        dell'array passato come parametro.
+                    </p>
+                </li>
+                <li>
+                    findAll()
+                    <p>
+                        Questa funzione legge i diversi file e salva i diversi dati in un array.
+                    </p>
+                </li>
+                <li>
+                    deleteBy()
+                    <p>
+                        Questa funzione legge i diversi file fino a trovarne uno o più che abbia/abbiano le stesse caratteristiche 
+                        dell'array passato come parametro, una volta trovato lo elimina.
+                    </p>
+                </li>
+            </ul>
+        </p>
+        
         <h3 id="interfacciaUtente">3.3 Interfaccia utente (UI)</h3>
-        <h4 id="passaggioParametri">3.3.1 Passaggio parametri</h4>
-        <p>
-
-        </p>
-
-        <h4 id="sessioni">3.3.2 Sessioni</h4>
-        <p>
-            
-        </p>
-
-        <h4 id="funzioniPhp">3.3.3 Funzioni PHP</h4>
-        <p>
-            
-        </p>
-
-        <h4 id="chiamateAsincrone">3.3.4 Chiamate asincrone</h4>
-        <p>
-            
-        </p>
-
-        <h4 id="gestioneDatiDatabaseNoSQL">3.3.5 Gestione dati con database NoSQL</h4>
         <p>
             
         </p>
