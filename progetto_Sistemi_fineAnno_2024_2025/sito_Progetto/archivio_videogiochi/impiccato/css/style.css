@@ -1,5 +1,64 @@
-/*
-    Questo file serve ad indicare i dettagli e abbellire la pagina web che lo usa
-*/
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+}
 
-/* Questo e' un commento */
+.titoloPaginaWeb {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+}
+
+.descrizioneGioco {
+    margin: 20px;
+    padding: 20px;
+    background-color: #e0f7fa;
+    border-radius: 10px;
+}
+
+.gioco {
+    margin: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.parteFinale {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+#bottoneRigioca {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+#bottoneRigioca:hover {
+    background-color: #0b7dda;
+}
+

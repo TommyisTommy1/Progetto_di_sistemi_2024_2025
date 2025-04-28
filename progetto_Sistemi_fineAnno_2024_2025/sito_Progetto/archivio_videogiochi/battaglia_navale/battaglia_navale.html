@@ -1,4 +1,4 @@
-<!-- Questo file e' quello per giocare a battaglia navale -->
+<!-- Questo file e' quello per giocare a battaglia navale versione avanzata -->
 <!-- Questo e' un commento -->
 
 <!DOCTYPE html>
@@ -6,7 +6,7 @@
 <head> <!-- Testa della pagina web -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>battaglia_navale</title> <!-- Titolo della Pagina Web -->
+    <title>Battaglia Navale</title> <!-- Titolo della Pagina Web -->
     <link rel="stylesheet" href="css/style.css"> <!-- Link al file Css che verra' usato per abbellire la pagina web -->
 </head> <!-- Fine intestazione -->
 <body> <!-- Corpo della pagina web -->
@@ -21,19 +21,26 @@
         
         <!-- Paragrafo con la descrizione del gioco -->
         <p>
-            Questo gioco consiste nello scommettere una battaglia di navi 
-            su un campo da gioco, dove le navi sono disposte casualmente.
+            Posiziona le tue navi, poi combatti contro il computer!
+            <br>
+            Vinci affondando tutte le sue navi prima che lui affondi le tue.
         </p>
     </div>
 
     <!-- Divisore per indicare il gioco -->
     <div class="gioco">
 
+        <h2>La tua flotta</h2>
+        <div id="grigliaGiocatore" class="griglia"></div>
+
+        <h2>Campo nemico</h2>
+        <div id="grigliaNemico" class="griglia"></div>
+
     </div>
 
     <!-- Divisore per indicare la parte finale della pagina web -->
-    <div class="parteFinale">
-        
+    <div class="parteFinale" id="parteFinale">
+        <p id="messaggio"></p>
     </div>
 
     <!-- Script javascript che verra' usato dalla pagina web -->

@@ -11,15 +11,11 @@
 </head> <!-- Fine intestazione -->
 <body> <!-- Corpo della pagina web -->
     
-    <!-- Titolo della Pagina web con decorazioni date dalla classe titoloPaginaWeb all'interno del Css -->
     <h1 class="titoloPaginaWeb">
         Impiccato
     </h1>
 
-    <!-- Divisore per indicare la descrizione del gioco -->
     <div class="descrizioneGioco">
-                
-        <!-- Paragrafo con la descrizione del gioco -->
         <p>
             Il gioco dell'impiccato è un gioco di parole in cui il giocatore 
             deve indovinare una parola segreta, inserendo lettere dell'alfabeto. 
@@ -34,20 +30,23 @@
             <br>
             Il gioco termina quando il giocatore indovina la parola segreta o 
             quando il giocatore esaurisce tutti i tentativi.
+            <br>
+            Per ora (verrà aggiornato in futuro), il gioco conterrà parole relative all'informatica e alla programmazione.
         </p>
     </div>
 
-    <!-- Divisore per indicare il gioco -->
     <div class="gioco">
-
+        <p id="parolaNascosta"></p>
+        <input type="text" id="letteraInput" maxlength="1" placeholder="Inserisci una lettera">
+        <button onclick="indovinaLettera()">Prova</button>
+        <p id="tentativiRestanti"></p>
+        <p id="lettereSbagliate"></p>
     </div>
 
-    <!-- Divisore per indicare la parte finale della pagina web -->
-    <div class="parteFinale">
-        
+    <div class="parteFinale" id="parteFinale">
     </div>
+    
 
-    <!-- Script javascript che verra' usato dalla pagina web -->
     <script type="text/javascript" src="js/script.js"></script>
 </body> <!-- Fine corpo -->
 </html>
