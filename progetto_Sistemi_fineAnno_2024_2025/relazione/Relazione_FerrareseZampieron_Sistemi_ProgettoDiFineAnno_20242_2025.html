@@ -446,7 +446,27 @@
 
         <h3 id="testDebug">3.4 Test e debug</h3>
         <p>
-            
+            Le pagine sono state prima testate in formato HTML così che la loro struttura e grafica funzionassere come si era pensato 
+            poichè usando xampp e il formato PHP, certe volte, può causare il bug visivo delle diverse decorazioni.
+            <br>
+            Dopo aver testato le pagine in HTML e Css si è passati a testare le varie funzioni javascript usando il comando 
+            console.log(...) per aiutare a trovare più velocemente pezzi di codice non funzionanti e correggerli. 
+            Ovviamente ci sono stati alcuni errori causati dalla distrazione ma il sito web di prova li ha segnalati e si sono 
+            prese eventuali contromisure per evitarli e risolverli.
+            <br>
+            Successivamente si è passati a testare il progetto in php, usando la piattaforma Xampp -> Apache, in localhost.
+            <br>
+            Vedendo il funzionamento del sito si ha continuato ad aggiungere piccoli dettagli per una esperienza unica per l'utente, 
+            attraverso funzioni php e l'utilizzo dei database.
+            <br>
+            Col penultimo non si sono riscontrati problemi, invece con l'ultimo si hanno avuti problemi. 
+            Essi sono nati, dapprima a causa di una mancanza di basi con l'uso di sleekdb, poi con l'uso delle varie funzioni 
+            che da accesso la libreria (per esempio findOneBy) e infine a causa dell'hashing delle password e la mancanza di 
+            corrispondenza tra esse al login.
+            <br>
+            Per superare questi problemi si hanno fatto dei test unitari e di integrazione.
+            <br>
+            Infatti si sono copiate e incollate funzioni o parti di essse in nuovi file per testare la loro funzionalità e polimorfismo.
         </p>
     </div>
 
@@ -454,17 +474,55 @@
         <h2>4. Difficoltà e soluzioni</h2>
         <h3 id="difficoltaRiscontrate">4.1 Difficolta riscontrate</h3>
         <p>
-
+            Durante lo sviluppo del progetto, sono emerse diverse difficoltà sia a livello tecnico che organizzativo.
+            <br>
+            Alcune problematiche sono state affrontate e risolte grazie allo studio e alla sperimentazione, mentre altre 
+            hanno richiesto delle soluzioni temporanee o di compromessi, soprattutto a causa dei limiti di tempo disponibili.
+            <br>
+            Per lo più i problemi sono sorti quando si è iniziato ad usare la libreria per creare database, sleekdb, e 
+            con l'implementazione della cybersecurezza.
+            <br>
+            Inoltre si sono riscontrate delle difficoltà con i listener in javascript, ma fortunatamente erano degli errori di 
+            distrazione.
+            <br>
+            Il css non ha recato quasi nessun danno poichè sono state usate delle indicazioni più o meno semplici e basiche.
+            <br>
+            Il php ha, invece, causato difficoltà con gli usi di $_GET e $_POST poichè i dati venivano quasi sempre 
+            condivisi attraverso i database.
         </p>
 
         <h3 id="strategieUtilizzate">4.2 Strategie utilizzate</h3>
         <p>
-
+            Di fronte alle difficoltà emerse durante lo sviluppo del progetto, è stato necessario adottare diverse strategie 
+            per cercare soluzioni efficaci.
+            <br>
+            Le decisioni sono state prese valutando attentamente le alternative disponibili, considerando sia i vincoli 
+            tecnici sia i limiti di tempo.
+            <br>
         </p>
 
         <h3 id="lezioniApprese">4.3 Lezioni apprese</h3>
         <p>
-
+            Durante lo sviluppo del progetto, sono state apprese diverse lezioni importanti che hanno contribuito
+            alla crescita personale e professionale di ciascun membro del gruppo.
+            <br>
+            La gestione del tempo e delle risorse è stata una delle principali sfide affrontate, e si è imparato 
+            a pianificare meglio le attività e a stabilire priorità.
+            <br>
+            Inoltre, si è compreso l'importanza della comunicazione e della collaborazione all'interno del gruppo,
+            che ha permesso di affrontare le difficoltà in modo più efficace.
+            <br>
+            Infine, si è acquisita una maggiore familiarità con le tecnologie utilizzate, in particolare con PHP e SleekDB,
+            che hanno richiesto un certo grado di apprendimento e adattamento.
+            <br>
+            Avendo capito come funzionano i vari linguaggi si è potuto creare un decente sito web con le pagine che servono, 
+            le chiamate asincrone e il database sono state due parti fatte più che bene per quanto il nostro studio ci ha permesso.
+            <br>
+            Oltre a tutto questo si è riusciti ad usare ed implementare delle basi di cybersecurezza per difendere i dati degli utenti 
+            da attacchi di malintenzionati.
+            <br>
+            In un prossimo futuro si potrebbe finire di implementare le idee trascurate, magari abbellire il css del sito e 
+            cercare di publicare una versione alpha come debutto nel web.
         </p>
     </div>
 
