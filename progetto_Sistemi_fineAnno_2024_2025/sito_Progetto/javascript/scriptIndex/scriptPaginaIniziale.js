@@ -14,6 +14,6 @@ document.getElementById("submitRicerca").addEventListener("click", function() {
         }
     };
     
-    request.open("GET", "chiamateAsincrone/chiamataAsincronaListaVideogiochi.php?giocoRicerca=" + giocoRicerca);
+    request.open("GET", "chiamateAsincrone/chiamataAsincronaListaVideogiochi.php?giocoRicerca=" + giocoRicerca, true);
     request.send();
 });

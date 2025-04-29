@@ -81,21 +81,17 @@
     </div>
     
     <!-- Bottoni per ordinare i videogiochi -->
-    <div class="ordinatore"></div>
+    <div class="ordinatore">
+        <h3>Ordina i giochi</h3>
+        <select name="selectOrdinatore" id="selectOrdinatore">
+            <option value="nome">Nome</option>
+            <option value="random">Random</option>
+        </select>
+        <button type="button" class="bottoneOrdinatore" id="bottoneOrdinatore">Clicca per ordinare</button>
+    </div>
 
     <!-- Lista dei videogiochi -->
-    <div class="videogiochiOrdinati">
-
-        <!-- Div per ogni videogioco -->
-        <div class="videogioco">
-
-            <!-- Immagine del videogioco -->
-            <img src="" alt="fotoVideogioco" class="imgVideogioco">
-
-            <!-- Nome del videogioco -->
-            <h3 class="titoloVideogioco"></h3>
-        </div>
-    </div>
+    <div class="videogiochiOrdinati" id="videogiochiOrdinati"></div>
 
     <!-- Divisore per indicare la parte finale della pagina web -->
     <div class="parteFinale">

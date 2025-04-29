@@ -37,5 +37,4 @@
         // Ritorno il percorso senza la sua estensione
         return $percorso;
     }
-
 ?>
