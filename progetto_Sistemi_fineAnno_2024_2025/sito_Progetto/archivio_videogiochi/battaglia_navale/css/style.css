@@ -1,13 +1,17 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #eef2f7;
+    background-color: #0e223b;
+}
+
+p{
+    color: #ff4c4c;
 }
 
 .titoloPaginaWeb {
     margin: 20px;
     font-size: 48px;
-    color: #003366;
+    color: #b9cc0b;
 }
 
 .descrizioneGioco p {
@@ -18,12 +22,12 @@ body {
 .gioco h2 {
     margin-top: 30px;
     font-size: 24px;
-    color: #333;
+    color: #fffb06;
 }
 
 .griglia {
     width: 320px;
-    height: 320px;
+    height: 340px;
     margin: 10px auto;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
