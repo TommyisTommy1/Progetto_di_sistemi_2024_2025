@@ -96,7 +96,7 @@
 
                 // Caso improbabile se non impossibile
                 default:
-                    $err = "<br>Non hai inserito nessun dato, clicca il bottone per inserirli";
+                    $err = "<br>Non hai inserito nessun dato, clicca il bottone per inserirli!";
             }
 
             // Controllo il risutato

@@ -203,6 +203,7 @@ let citta = [
     "Trento",  
     "Vicenza",  
     "Terni",  
+    "Treviso",
     "Bolzano",  
     "Novara",  
     "Piacenza",  
